@@ -4,8 +4,14 @@
 int main(void)
 {
     //TODO prompt for input
-    long card = get_long("Number: ");
-    
+    long card;
+    do
+    {
+        card = get_long("Number: ");
+    }
+    while (card < 0);
+
+
 
     //TODO calculate checksum
 
