@@ -11,15 +11,15 @@ int main(void)
     }
     while (height <1 || height >8);
     //TODO for loop
-    for (int k = 0; k < height; k++)
+    for (int i = 0; i < height; i++)
     {
         //TODO printf spaces (height - row - 1)
-        for (int i = 0; i < height - k - 1; i++)
+        for (int j = 0; j < height - i - 1; j++)
         {
             printf(" ");
         }
         //TODO printf left hashes
-        for (int i = 0; i < k + 1; i++)
+        for (int j = 0; j < i + 1; j++)
         {
             printf("#");
         }
@@ -28,7 +28,7 @@ int main(void)
             printf("  ");
 
         //TODO printf right hashes
-        for (int i = 0; i < k + 1; i++)
+        for (int j = 0; j < i + 1; j++)
         {
             printf("#");
         }
