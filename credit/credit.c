@@ -36,7 +36,7 @@ int main(void)
 
     if (sum % 10 == 0)
     {
-        // Getting the first two digits
+        // TODO Getting the first two digits
         while (card >= 100)
         {
             card /= 10;
