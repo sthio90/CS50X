@@ -11,12 +11,21 @@ int main(void)
     }
     while (height <1 || height >8);
 
-    //TODO printf hashes at prompted height
+    //TODO printf spaces
+    for (int i = 1; i <= height; i++)
+    {
+        printf(" ");
+    }
+    //TODO printf left hashes
+
+    //TODO printf gap
     for (int i = 0; i < height; i++)
     {
-        //TODO printf pyramids according to i
-        for(int j = 0; j < )
-        string row = 
-        printf("%s  %s\n");
+        printf("  ");
+    }
+    //TODO printf right hashes
+    for (int i = 0; i < height; i++)
+    {
+        printf(")
     }
 }
