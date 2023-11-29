@@ -26,6 +26,10 @@ int main(void)
     //TODO printf right hashes
     for (int i = 0; i < height; i++)
     {
-        printf(")
+        for (int j = 0; j < height; j++)
+        {
+            printf("#");
+        }
+        printf("\n");
     }
 }
