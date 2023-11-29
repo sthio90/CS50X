@@ -19,7 +19,7 @@ int main(void)
             printf(" ");
         }
         //TODO printf left hashes
-        for (int j = 0; j < i + 1; j++)
+        for (int j = 0; j <= i; j++)
         {
             printf("#");
         }
@@ -28,7 +28,7 @@ int main(void)
             printf("  ");
 
         //TODO printf right hashes
-        for (int j = 0; j < i + 1; j++)
+        for (int j = 0; j <= i; j++)
         {
             printf("#");
         }
