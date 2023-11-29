@@ -10,31 +10,34 @@ int main(void)
         height = get_int("Height: ");
     }
     while (height <1 || height >8);
-
-    //TODO printf spaces
-    for (int i = 1; i <= height; i++)
+    //TODO for loop
+    for (int k = 0; k < height; k++)
     {
-        printf(" ");
-    }
-    //TODO printf left hashes
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < height; j++)
+        //TODO printf spaces
+        for (int i = 1; i <= height; i++)
         {
-            printf("#");
+            printf(" ");
         }
-    }
-    //TODO printf gap
-    for (int i = 0; i < height; i++)
-    {
-        printf("  ");
-    }
-    //TODO printf right hashes
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < height; j++)
+        //TODO printf left hashes
+        for (int i = 0; i < height; i++)
         {
-            printf("#");
+            for (int j = 0; j < height; j++)
+            {
+                printf("#");
+            }
+        }
+        //TODO printf gap
+        for (int i = 0; i < height; i++)
+        {
+            printf("  ");
+        }
+        //TODO printf right hashes
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                printf("#");
+            }
         }
         printf("\n");
     }
