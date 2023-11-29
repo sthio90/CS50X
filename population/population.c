@@ -24,7 +24,7 @@ int main(void)
     int years = 0;
     for (int i = 0; start < end; i++)
     {
-        start = start + start/3 - start/4;
+        start = start + start / 3 - start / 4;
         years++;
     }
     // TODO: Print number of years
