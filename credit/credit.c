@@ -11,9 +11,8 @@ int main(void)
     }
     while (card < 0);
 
-
-
     //TODO calculate checksum
+    //
 
     //TODO check for card length and starting digits
 }
