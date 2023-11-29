@@ -14,7 +14,7 @@ int main(void)
     for (int k = 0; k < height; k++)
     {
         //TODO printf spaces
-        for (int i = height - 1; i < height; i--)
+        for (int i = height - 1; i < height; i++)
         {
             printf(" ");
         }
