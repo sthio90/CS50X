@@ -16,6 +16,7 @@ int main(void)
     {
         //TODO printf pyramids according to i
         for(int j = 0; j < )
-        printf("#  #\n");
+        string row = 
+        printf("%s  %s\n");
     }
 }
