@@ -19,7 +19,7 @@ int main(void)
             printf(" ");
         }
         //TODO printf left hashes
-        for (int i = 0; i < height; i++)
+        for (int i = 0; i < k + 1; i++)
         {
             printf("#");
         }
