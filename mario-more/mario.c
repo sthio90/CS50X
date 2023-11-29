@@ -9,8 +9,8 @@ int main(void)
     {
         height = get_int("Height: ");
     }
-    while (height <0 || height >8);
+    while (height <1 || height >8);
 
     //TODO printf hashes at prompted height
-
+    
 }
