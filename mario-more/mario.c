@@ -14,7 +14,7 @@ int main(void)
     for (int k = 0; k < height; k++)
     {
         //TODO printf spaces
-        for (int i = 1; i <= height; i++)
+        for (int i = 1; i < height; i++)
         {
             printf(" ");
         }
@@ -29,7 +29,7 @@ int main(void)
         //TODO printf gap
 
             printf("  ");
-            
+
         //TODO printf right hashes
         for (int i = 0; i < height; i++)
         {
