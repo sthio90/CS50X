@@ -13,8 +13,8 @@ int main(void)
     //TODO for loop
     for (int k = 0; k < height; k++)
     {
-        //TODO printf spaces
-        for (int i = height - k; i < height; i++)
+        //TODO printf spaces (height - row - 1)
+        for (int i = height - k - 1; i < height; i++)
         {
             printf(" ");
         }
