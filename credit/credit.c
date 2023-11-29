@@ -12,7 +12,6 @@ int main(void)
     while (card < 0);
 
     // TODO calculate checksum using Luhn's algo
-
     int sum = 0;
     long cardNumber = card;
     int length = 0;
@@ -33,7 +32,6 @@ int main(void)
     }
 
     // TODO check for card length and starting digits
-
     if (sum % 10 == 0)
     {
         // TODO Getting the first two digits
