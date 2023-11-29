@@ -17,7 +17,13 @@ int main(void)
         printf(" ");
     }
     //TODO printf left hashes
-
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            printf("#");
+        }
+    }
     //TODO printf gap
     for (int i = 0; i < height; i++)
     {
