@@ -27,10 +27,9 @@ int main(void)
             }
         }
         //TODO printf gap
-        for (int i = 0; i < height; i++)
-        {
+
             printf("  ");
-        }
+            
         //TODO printf right hashes
         for (int i = 0; i < height; i++)
         {
