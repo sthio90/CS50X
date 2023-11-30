@@ -29,18 +29,24 @@ int compute_score(string word)
     // check if letter in string is lower case if so change it to upper case
     for (int i = 0; i < wordLength; i++)
     {
-        if (word[i] >= 97 && word[i] <=122) //char of the word is lower case 97-122
+        if (islower(word[i]))
         {
-            toupper(word[i]);
+            word[i] = toupper(word[i]);
+            printf("%c\n", word[i]);
         }
 
     // assign points to chars in string and 0 to non-letters and sum
         //if (char is uppercase)
+        if (isupper(word[i]))
+        {
+            sum += 
+        }
        // {
            // sum += assigned points in array;
        // }
 
     }
-    
+
     return sum;
+    printf("%i\n", sum);
 }
