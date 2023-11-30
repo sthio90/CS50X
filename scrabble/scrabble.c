@@ -39,8 +39,8 @@ int compute_score(string word)
         //if (char is uppercase)
         if (isupper(word[i]))
         {
-            point =  word[i] - 65
-            sum += 1;
+            int point =  (int)word[i] - 65;
+            sum += point;
         }
        // {
            // sum += assigned points in array;
