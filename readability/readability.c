@@ -20,9 +20,9 @@ int count_letters(string text)
 {
     int sum = 0;
     // TODO for loop to count only letters
-    for (i = 0; i < strlen(text); i++)
+    for (int i = 0; i < strlen(text); i++)
     {
-        if (isalpha(text))
+        if (isalpha(text[i]))
         {
             sum++
         }
