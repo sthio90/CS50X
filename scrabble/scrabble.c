@@ -21,15 +21,15 @@ int main(void)
     // TODO: Print the winner
     if (score1 > score2)
     {
-        printf("Player 1 is the winner!\n");
+        printf("Player 1 wins!\n");
     }
     else if (score2 > score1)
     {
-        printf("Player 2 is the winner!\n");
+        printf("Player 2 wins!\n");
     }
     else
     {
-        printf("It is a tie!\n");
+        printf("Tie!\n");
     }
 }
 
