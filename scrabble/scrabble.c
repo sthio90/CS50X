@@ -38,13 +38,12 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     int sum = 0;
     // iterate over each character in the string
-    for (int i = 0; word[i] 1= '\0'; i++)
+    for (int i = 0; word[i] != '\0'; i++)
     {
         // convert char to uppercase if it's a letter and adds sum
         if (isalpha(word[i]))
         {
-            word[i] = toupper(word[i]);
-            int point = POINTS[(int) word[i] - 'A'];
+            int point = POINTS[toupper((int) word[i]) - 'A'];
             sum += point;
         }
     }
