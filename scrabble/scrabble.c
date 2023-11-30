@@ -36,9 +36,9 @@ int compute_score(string word)
 
     // assign points to chars in string and 0 to non-letters and sum
         //if (char is uppercase)
-        {
-            sum += assigned points in array;
-        }
+       // {
+           // sum += assigned points in array;
+       // }
     return sum;
     }
 
