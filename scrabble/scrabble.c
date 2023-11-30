@@ -19,11 +19,11 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    if (word1 > word2)
+    if (score1 > score2)
     {
         printf("Player 1 is the winner!\n");
     }
-    else if (word2 > word1)
+    else if (score2 > score1)
     {
         printf("Player 2 is the winner!\n");
     }
@@ -59,7 +59,6 @@ int compute_score(string word)
        // }
 
     }
-    printf("%i\n", sum);
     return sum;
 
 }
