@@ -48,4 +48,5 @@ int compute_score(string word)
         }
     }
     return sum;
+
 }
