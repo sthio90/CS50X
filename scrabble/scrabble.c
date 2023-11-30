@@ -39,7 +39,7 @@ int compute_score(string word)
         //if (char is uppercase)
         if (isupper(word[i]))
         {
-            int point =  (int)word[i] - 65;
+            int point =  POINTS[(int)word[i] - 65];
             printf("%i\n", point);
             sum += point;
         }
