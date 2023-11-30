@@ -30,3 +30,12 @@ int count_letters(string text)
     }
     return sum;
 }
+
+int count_words(string text)
+{
+    //TODO for loop to count words
+    for (int i = 0; i < strlen(text); i++)
+    {
+        
+    }
+}
