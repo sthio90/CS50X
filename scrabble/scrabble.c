@@ -38,7 +38,7 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     int sum = 0;
     int wordLength = strlen(word);
-    // check if letter in string is lower case if so change it to upper case
+    // iterate over each character in the string
     for (int i = 0; i < wordLength; i++)
     {
         if (islower(word[i]))
@@ -49,7 +49,7 @@ int compute_score(string word)
     // assign points to chars in string and 0 to non-letters and sum
         if (isupper(word[i]))
         {
-            int point =  POINTS[(int)word[i] - 65];
+            int point =  POINTS[(int)word[i] - 'A'];
             printf("%i\n", point);
             sum += point;
         }
