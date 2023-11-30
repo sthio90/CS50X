@@ -37,7 +37,6 @@ int compute_score(string word)
 {
     // TODO: Compute and return score for string
     int sum = 0;
-    int wordLength = strlen(word);
     // iterate over each character in the string
     for (int i = 0; i < wordLength; i++)
     {
