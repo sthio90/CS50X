@@ -46,7 +46,7 @@ int compute_score(string word)
        // }
 
     }
-
-    return sum;
     printf("%i\n", sum);
+    return sum;
+
 }
