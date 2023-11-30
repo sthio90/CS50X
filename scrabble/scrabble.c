@@ -1,5 +1,5 @@
-#include <ctype.h>
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -41,14 +41,13 @@ int compute_score(string word)
     // iterate over each character in the string
     for (int i = 0; i < wordLength; i++)
     {
-         // convert cahr to uppercase if it's a letter and adds sum
+        // convert cahr to uppercase if it's a letter and adds sum
         if (isalpha(word[i]))
         {
             word[i] = toupper(word[i]);
-            int point =  POINTS[(int)word[i] - 'A'];
+            int point = POINTS[(int) word[i] - 'A'];
             sum += point;
         }
     }
     return sum;
-
 }
