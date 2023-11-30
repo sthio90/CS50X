@@ -39,8 +39,8 @@ int compute_score(string word)
        // {
            // sum += assigned points in array;
        // }
-    return sum;
+
     }
-
-
+    
+    return sum;
 }
