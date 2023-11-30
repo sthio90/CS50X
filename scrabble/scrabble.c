@@ -38,7 +38,7 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     int sum = 0;
     // iterate over each character in the string
-    for (int i = 0; i < wordLength; i++)
+    for (int i = 0; word[i] 1= '\0'; i++)
     {
         // convert char to uppercase if it's a letter and adds sum
         if (isalpha(word[i]))
