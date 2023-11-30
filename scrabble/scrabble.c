@@ -29,7 +29,7 @@ int compute_score(string word)
     // check if letter in string is lower case if so change it to upper case
     for (int i = 0; i < wordLength; i++)
     {
-        if (word[i] char of the word is lower case)
+        if (word[i] char of the word is lower case 97-122)
         {
             toupper(word[i]);
         }
