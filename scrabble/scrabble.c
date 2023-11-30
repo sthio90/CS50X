@@ -40,6 +40,7 @@ int compute_score(string word)
         if (isupper(word[i]))
         {
             int point =  (int)word[i] - 65;
+            printf("%i\n", point);
             sum += point;
         }
        // {
