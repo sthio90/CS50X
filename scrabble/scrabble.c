@@ -25,6 +25,9 @@ int compute_score(string word)
 {
     // TODO: Compute and return score for string
     // check if letter in string is lower case if so change it to upper case
-    
+    if
+    {
+        
+    }
     // assign points to chars in string and 0 to non-letters and sum
 }
