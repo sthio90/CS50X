@@ -39,7 +39,7 @@ int compute_score(string word)
         //if (char is uppercase)
         if (isupper(word[i]))
         {
-            sum += 
+            sum += 1;
         }
        // {
            // sum += assigned points in array;
