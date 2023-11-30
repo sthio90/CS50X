@@ -43,7 +43,7 @@ int compute_score(string word)
         // convert char to uppercase if it's a letter and adds sum
         if (isalpha(word[i]))
         {
-            int point = POINTS[toupper((word[i]) - 'A'];
+            int point = POINTS[toupper(word[i]) - 'A'];
             sum += point;
         }
     }
