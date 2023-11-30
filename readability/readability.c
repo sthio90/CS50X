@@ -18,5 +18,14 @@ int main(void)
 
 int count_letters(string text)
 {
-    return strlen(text);
+    int sum = 0;
+    // TODO for loop to count only letters
+    for (i = 0; i < strlen(text); i++)
+    {
+        if (isalpha(text))
+        {
+            sum++
+        }
+    }
+    return sum
 }
