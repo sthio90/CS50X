@@ -71,14 +71,14 @@ int count_words(string text)
 int count_sentences(string text)
 {
     int sumSent = 0;
-
-    // TODO for loop to count sentences separated by . ! ?
-    for (int i = 0; i < strlen(text); i++)
+    int length = strlen(text);
+    for (int i = 0; i < length; i++)
     {
-        if (ispunct(text[i]))
+        if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
             sumSent++;
         }
+
     }
     return sumSent;
 }
