@@ -8,7 +8,12 @@ void print_bulb(int bit);
 
 int main(void)
 {
-    // TODO
+    // TODO ask user for message
+    string message = get_string("Message: ");
+
+    // TODO convert message into series of 8bit binary numbers one for each character
+
+    // TODO print series of emojis with print_bulb function
 }
 
 void print_bulb(int bit)
