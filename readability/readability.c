@@ -7,7 +7,7 @@
 int count_letters(string text);
 int count_words(string text);
 int count_sentences(string text);
-
+int clInd(int count, int words, int sent);
 
 int main(void)
 {
@@ -26,6 +26,10 @@ int main(void)
     //TODO count sentences and print
     int sent = count_sentences(text);
     printf("%i sentences\n", sent);
+
+    //TODO use clInd to get grading and print
+    int grade = clInd(count, words, sent);
+    printf("Grade %i\n", grade);
 }
 
 int count_letters(string text)
@@ -70,4 +74,11 @@ int count_sentences(string text)
         }
     }
     return sumSent;
+}
+
+int clInd(int count, int words, int sent)
+{
+    // Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8; L is ave letters/100 words and S is ave sentences /100 words
+    
+
 }
