@@ -29,7 +29,18 @@ int main(void)
 
     //TODO use clInd to get grading and print
     int grade = clInd(count, words, sent);
-    printf("Grade %i\n", grade);
+    if (grade > 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else if (grade <1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else
+    {
+        printf("Grade %i\n", grade);
+    }
 }
 
 int count_letters(string text)
