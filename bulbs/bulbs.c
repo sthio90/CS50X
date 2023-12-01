@@ -19,10 +19,14 @@ int main(void)
         for (int j = 0; j < BITS_IN_BYTE; j++) {
             int bit = (c & mask) ? 1 : 0;
             printf("%d", bit);
+            mask >>= 1;
         }
+     printf("\n");
     }
 
+
     // TODO print series of emojis with print_bulb function
+    
 }
 
 void print_bulb(int bit)
