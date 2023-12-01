@@ -21,12 +21,13 @@ int main(void)
             printf("%d", bit);
             mask >>= 1;
         }
-     printf("\n");
+    
+    printf("\n");
     }
 
 
     // TODO print series of emojis with print_bulb function
-    
+
 }
 
 void print_bulb(int bit)
