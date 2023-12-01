@@ -68,6 +68,36 @@ int count_words(string text)
     return sumWords;
 }
 
+int count_words(string text)
+{
+    int sumWords = 0;
+    int length = strlen(text);
+    bool inWord = false;  // Flag to indicate if we are inside a word
+
+    for (int i = 0; i < length; i++)
+    {
+        if (isspace(text[i]))
+        {
+            if (inWord) {  // End of a word
+                sumWords++;
+                inWord = false;  // Reset the flag as we're now outside a word
+            }
+        }
+        else
+        {
+            inWord = true;  // We are inside a word
+        }
+    }
+
+    // If the last character is not a space, then we need to count the final word
+    if (inWord)
+    {
+        sumWords++;
+    }
+
+    return sumWords;
+}
+
 int count_sentences(string text)
 {
     int sumSent = 0;
