@@ -20,6 +20,10 @@ int main(void)
     //TODO count words and print
     int words = count_words(text);
     printf("%i words\n", words);
+
+    //TODO count sentences and print
+    int sent = count_sentences(text);
+    printf("%i sentences\n", sent);
 }
 
 int count_letters(string text)
@@ -49,4 +53,19 @@ int count_words(string text)
         }
     }
     return sumWords;
+}
+
+int count_sentences(string text)
+{
+    int sumSent = 0;
+
+    //TODO for loop to count sentences separated by . ! ?
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if(ispunct(text[i]))
+        {
+            sumSent++;
+        }
+    }
+    return sumSent;
 }
