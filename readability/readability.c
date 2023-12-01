@@ -79,7 +79,7 @@ int count_sentences(string text)
 int clInd(int count, int words, int sent)
 {
     // Coleman-Liau index = 0.0588 * L - 0.296 * S - 15.8; L is ave letters/100 words and S is ave sentences /100 words
-    int clGrade = 0.0588 * (count * 100 /words) - 0.296 * (sent * 100 / words);
-    return clGrade;
+    float clGrade = 0.0588 * (count * 100 /words) - 0.296 * (sent * 100 / words);
+    return round(clGrade);
 
 }
