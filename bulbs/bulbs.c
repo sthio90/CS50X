@@ -17,7 +17,8 @@ int main(void)
         int mask = 128; // Binary 10000000
 
         for (int j = 0; j < BITS_IN_BYTE; j++) {
-            
+            int bit = (c & mask) ? 1 : 0;
+            printf("%d", bit);
         }
     }
 
