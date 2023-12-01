@@ -45,7 +45,7 @@ int count_letters(string text)
     int length = strlen(text);
     for (int i = 0; i < length; i++)
     {
-        if (isalpha(text[i])) 
+        if (isalpha(text[i]))
         {
             sum++;
         }
@@ -57,8 +57,8 @@ int count_words(string text)
 {
     // We can assume there will be 1 word, single spaces and the string does not start or end in a space
     int sumWords = 1;
-    // TODO for loop to count words
-    for (int i = 0; i < strlen(text); i++)
+    int length = strlen(text);
+    for (int i = 0; i < length; i++)
     {
         if (isspace(text[i]))
         {
