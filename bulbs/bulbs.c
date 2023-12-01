@@ -26,8 +26,6 @@ int main(void)
 
         printf("\n");
     }
-
-    // TODO print series of emojis with print_bulb function
 }
 
 void print_bulb(int bit)
