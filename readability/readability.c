@@ -16,13 +16,13 @@ int main(void)
 
     // TODO run count_letters function and print
     int count = count_letters(text);
-
+    printf("%i\n", count);
     // TODO count words and print
     int words = count_words(text);
-
+    printf("%i\n", words);
     // TODO count sentences and print
     int sent = count_sentences(text);
-
+    printf("%i\n", sent);
     // TODO use clInd to get grading and print
     int grade = clInd(count, words, sent);
     if (grade > 16)
