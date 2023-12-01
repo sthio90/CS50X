@@ -53,39 +53,25 @@ int count_letters(string text)
     return sum;
 }
 
-// int count_words(string text)
-// {
-//     // We can assume there will be 1 word, single spaces and the string does not start or end in a space
-//     int sumWords = 1;
-//     int length = strlen(text);
-//     for (int i = 0; i < length; i++)
-//     {
-//         if (isspace(text[i]))
-//         {
-//             sumWords++;
-//         }
-//     }
-//     return sumWords;
-// }
-
 int count_words(string text)
 {
     int sumWords = 0;
     int length = strlen(text);
-    bool inWord = false;  // Flag to indicate if we are inside a word
+    bool inWord = false; // Flag to indicate if we are inside a word
 
     for (int i = 0; i < length; i++)
     {
         if (isspace(text[i]))
         {
-            if (inWord) {  // End of a word
+            if (inWord)
+            {
                 sumWords++;
-                inWord = false;  // Reset the flag as we're now outside a word
+                inWord = false; // Reset the flag as we're now outside a word
             }
         }
         else
         {
-            inWord = true;  // We are inside a word
+            inWord = true; // We are inside a word
         }
     }
 
@@ -108,7 +94,6 @@ int count_sentences(string text)
         {
             sumSent++;
         }
-
     }
     return sumSent;
 }
