@@ -12,10 +12,12 @@ int main(void)
     string message = get_string("Message: ");
 
     // TODO convert message into series of 8bit binary numbers one for each character
+    for (int i = 0; i < strlen(message); i++){
+        char c = message[i];
+        int mask = 128; // Binary 10000000
 
-    // convert text into decimal numbers
-    printf ("%i\n", message[0]);
-    // convert decimal numbers into 8 bit binary
+        for (int j = 0; )
+    }
 
     // TODO print series of emojis with print_bulb function
 }
