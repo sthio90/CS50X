@@ -18,10 +18,11 @@ int main(void)
 
         for (int j = 0; j < BITS_IN_BYTE; j++) {
             int bit = (c & mask) ? 1 : 0;
-            printf("%d", bit);
+            print_bulb(bit); // Prints emojis
+            // printf("%d", bit);
             mask >>= 1;
         }
-    
+
     printf("\n");
     }
 
