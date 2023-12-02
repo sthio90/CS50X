@@ -1,20 +1,15 @@
-sort1 uses: TODO
-selection sort
+sort1 uses: selection sort
 
-How do you know?: TODO
-slowest in the random and reversed text files
+How do you know?: slowest in the random and reversed text files
 
-sort2 uses: TODO
-bubble sort
+sort2 uses: bubble sort
 
-How do you know?: TODO
-fastest to sort the sorted and reversed text due to the Omega being n
+How do you know?: fastest to sort the sorted and reversed text due to the Omega being n
 
-sort3 uses: TODO
-merge sort
+sort3 uses: merge sort
 
-How do you know?: TODO
-fastest on average for all 3 text files
+How do you know?: fastest on average for all 3 text files
+
 
 sort 1; 2; 3;
 sorted10000 = 0.124s; 0.069s; 0.133s;
