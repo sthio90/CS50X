@@ -3,6 +3,7 @@ sort1 uses: TODO
 How do you know?: TODO
 
 sort2 uses: TODO
+Bubble sort
 
 How do you know?: TODO
 
