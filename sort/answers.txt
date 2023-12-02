@@ -9,3 +9,7 @@ How do you know?: TODO
 sort3 uses: TODO
 
 How do you know?: TODO
+
+
+sort 1:
+sorted10000 = 0.124s
