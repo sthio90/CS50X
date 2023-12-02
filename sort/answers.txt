@@ -11,5 +11,5 @@ sort3 uses: TODO
 How do you know?: TODO
 
 
-sort 1:
-sorted10000 = 0.124s
+sort 1; 2; 3;
+sorted10000 = 0.124s; 0.069s; 0.133s
