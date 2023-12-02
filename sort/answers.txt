@@ -2,16 +2,17 @@ sort1 uses: selection sort
 
 How do you know?: slowest in the random and reversed text files
 
-sort2 uses: bubble sort
-
-How do you know?: fastest to sort the sorted and reversed text due to the Omega being n
-
-sort3 uses: merge sort
+sort2 uses: merge sort
 
 How do you know?: fastest on average for all 3 text files
+
+sort3 uses: bubble sort
+
+How do you know?: fastest to sort the sorted and reversed text due to the Omega being n
 
 
 sort 1; 2; 3;
 sorted10000 = 0.124s; 0.069s; 0.133s;
 random10000 = 0.263s; 0.135s; 0.134s;
+random50000 = 6.569s; 0.954s; 2.756s;
 reversed10000 = 0.256s; 0.079s; 0.139s;
