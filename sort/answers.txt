@@ -12,4 +12,6 @@ How do you know?: TODO
 
 
 sort 1; 2; 3;
-sorted10000 = 0.124s; 0.069s; 0.133s
+sorted10000 = 0.124s; 0.069s; 0.133s;
+random10000 = 0.263s; 0.135s; 0.134s;
+reversed10000 = 0.256s; 0.079s; 0.139s;
