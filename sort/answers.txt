@@ -1,14 +1,14 @@
-sort1 uses: selection sort
+sort1 uses: bubble sort
 
-How do you know?: slowest in the random and reversed text files
+How do you know?: fastest to sort the sorted and reversed text due to the Omega being n
 
 sort2 uses: merge sort
 
 How do you know?: fastest on average for all 3 text files
 
-sort3 uses: bubble sort
+sort3 uses: selection sort
 
-How do you know?: fastest to sort the sorted and reversed text due to the Omega being n
+How do you know?: slowest in the random and reversed text files
 
 
 sort 1; 2; 3;
