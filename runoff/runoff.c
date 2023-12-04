@@ -152,7 +152,7 @@ void tabulate(void)
                     // if the candidates name is first on the ballot then add the vote
                     for (int k = 0; k < candidate_count; k++)
                     {
-                        if (preferences[i][k] == 0)
+                        if (preferences[j][k] == 0)
                         {
                             candidates[i].votes ++;
                             break;
