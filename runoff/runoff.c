@@ -145,7 +145,11 @@ void tabulate(void)
     // TODO
     for (int = 0; i < candidate_count; i++)
     {
-        
+        if (!candidates[i].eliminated)
+        {
+                
+                candidates[i].votes ++
+        }
     }
     return;
 }
