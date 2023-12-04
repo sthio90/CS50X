@@ -210,11 +210,19 @@ int find_min(void)
 bool is_tie(int min)
 {
     // TODO
-    if (candidates[i].votes == min)
+    for (int i = 0; i < candidate_count; i++)
     {
-        printf("tie");
+        if (!candidates[i].eliminated)
+        {
+            if (candidates[i].votes != min)
+            {
+                return false;
+            }
+        }
+
     }
-    return false;
+
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
