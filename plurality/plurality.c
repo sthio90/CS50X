@@ -89,7 +89,7 @@ void print_winner(void)
     {
         if (candidates[i].votes > maxVotes)
         {
-            candidates[i].votes = maxVotes;
+            maxVotes = candidates[i].votes;
         }
     }
     // loop over candidates to print winner
