@@ -132,7 +132,7 @@ bool vote(int voter, int rank, string name)
     {
         if (strcmp(name, candidates[i].name) == 0)
         {
-           preferences[voter][rank]; // candidates preferences updated
+           preferences[voter][rank] = i; // candidates preferences updated
            return true;
         }
     }
