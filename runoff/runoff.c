@@ -210,7 +210,10 @@ int find_min(void)
 bool is_tie(int min)
 {
     // TODO
-    if ()
+    if (candidates[i].votes == min)
+    {
+        printf("tie");
+    }
     return false;
 }
 
