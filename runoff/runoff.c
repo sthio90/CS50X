@@ -132,8 +132,8 @@ bool vote(int voter, int rank, string name)
     {
         if (strcmp(name, candidates[i].name) == 0)
         {
-           preferences[voter][rank] = i; // candidates preferences updated
-           return true;
+            preferences[voter][rank] = i; // candidates preferences updated
+            return true;
         }
     }
     return false;
@@ -160,16 +160,15 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
-    for (int i =0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes > (voter_count / 2) )
+        if (candidates[i].votes > (voter_count / 2))
         {
-            printf ("%s\n", candidates[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
         }
-
     }
-        return false;
+    return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
@@ -203,7 +202,6 @@ bool is_tie(int min)
                 return false;
             }
         }
-
     }
 
     return true;
