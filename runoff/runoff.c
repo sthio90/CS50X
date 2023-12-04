@@ -143,6 +143,7 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO
+    
     return;
 }
 
@@ -150,6 +151,7 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+
     return false;
 }
 
