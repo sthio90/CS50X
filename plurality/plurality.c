@@ -86,8 +86,11 @@ void print_winner(void)
     // loop over candidates and find highest voted ones
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes )
+        if (candidates[i].votes > all other candidates[].votes)
+        {
+            printf("%s\n", candidates[i].name);
+        }
     }
-    printf("%s\n", candidates[i].name);
+
     return;
 }
