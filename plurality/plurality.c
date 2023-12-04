@@ -69,7 +69,7 @@ bool vote(string name)
     for (int i =0; i < candidate_count; i++)
     {
 
-        if (name == candidates[i].name matches argv name then)
+        if (name == argv[i +1])
         {
             update vote count
             return true;
