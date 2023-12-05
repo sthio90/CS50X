@@ -35,6 +35,10 @@ int main(int argc, char *argv[])
 
     // TODO: Copy header from input file to output file
     uint8_t header[HEADER_SIZE];
+    // read header from input file
+    
+    // write header in output file
+
     // TODO: Read samples from input file and write updated data to output file
 
     // Close files
