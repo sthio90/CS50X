@@ -12,9 +12,9 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
             if(image[i][j].rgbtBlue == 0 && image[i][j].rgbtGreen == 0 && image[i][j].rgbtRed == 0)
             {
                 // change pixel to different colour
-                image[i][j].rgbtBlue = "ED";
-                image[i][j].rgbtGreen = "80";
-                image[i][j].rgbtBlue = "FF";
+                image[i][j].rgbtBlue = 237;
+                image[i][j].rgbtGreen = 128;
+                image[i][j].rgbtRed = 255;
             }
         }
     }
