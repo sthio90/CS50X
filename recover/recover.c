@@ -21,8 +21,9 @@ int main(int argc, char *argv[])
         printf("Unable to open file.\n");
         return 2;
     }
+    int16_t buffer; //buffer file
 
-    while (fread(, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
+    while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
@@ -31,7 +32,6 @@ int main(int argc, char *argv[])
             if (check its first jpeg)
                 // start writing new jpeg
                 {
-
                     sprintf(filename, "%03i.jpg", 0);
                     FILE *img = fopen(filename, "w");
                     if (img == NULL)
