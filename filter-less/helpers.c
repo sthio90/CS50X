@@ -26,7 +26,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             };
 
         // average BGR values of pixels and find average
-        int ave = average(rgbValues, 3);
+        int ave = (int)(average(rgbValues, 3) + 0.5);
         // set values to average
         image[i][j].rgbtBlue = ave;
         image[i][j].rgbtGreen = ave;
