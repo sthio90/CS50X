@@ -10,9 +10,9 @@ double average(int arr[], int size) {
     return sum / size;
 }
 
-void swap(int *a, int *b)
+void swap(BYTE *a, BYTE *b)
 {
-    int tmp = *a;
+    BYTE tmp = *a;
     *a = *b;
     b* = tmp;
 }
@@ -79,7 +79,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            swap(&image[i][j].rgbtRed, &)
+            swap(&image[i][j].rgbtRed, &image[i][width - 1 - j].rgbtRed);
         }
     }
     return;
