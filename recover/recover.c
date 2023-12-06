@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 
             {
                 // start writing new jpeg
-                char filename[8];
                 sprintf(filename, "%03i.jpg", fileCount++);
                 FILE *img = fopen(filename, "w");
                 if (img == NULL)
@@ -63,14 +62,18 @@ int main(int argc, char *argv[])
 
         }
         // else (already in jpeg)
-        if
+        if (img != NULL)
         {
             // keep writing
-
+            fwrite(buffer, BLOCK_SIZE, 1, img);
         }
 
     }
     //close any remaining files
+    if (img != NULL)
+    {
+        fclose(img);
+    }
     fclose(file);
-
+    return 0;
 }
