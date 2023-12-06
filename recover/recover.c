@@ -42,14 +42,31 @@ int main(int argc, char *argv[])
                         return 3;
                     }
                     isFirstJpeg = 0; // Set the flag to false
-                    fclose(img);
                 }
             // else if not first jpeg
+            else
+            {
                 // close file
+                fclose(img);
                 // write new jpeg file
+                char filename[8];
+                sprintf(filename, "%03i.jpg", 0);
+                FILE *img = fopen(filename, "w");
+                if (img == NULL)
+                {
+                    printf("No such file.\n");
+                    return 3;
+                }
+            }
+
         }
         // else (already in jpeg)
+        else
+        {
             // keep writing
+            
+        }
+
     }
     //close any remaining files
     fclose(file);
