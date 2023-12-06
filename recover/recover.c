@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
             if (isFirstJpeg)
                 // start writing new jpeg
                 {
+                    char filename[8];
                     sprintf(filename, "%03i.jpg", 0);
                     FILE *img = fopen(filename, "w");
                     if (img == NULL)
@@ -41,6 +42,7 @@ int main(int argc, char *argv[])
                         return 3;
                     }
                     isFirstJpeg = 0; // Set the flag to false
+                    fclose(img);
                 }
             // else if not first jpeg
                 // close file
@@ -51,5 +53,5 @@ int main(int argc, char *argv[])
     }
     //close any remaining files
     fclose(file);
-    fclose(filename);
+
 }
