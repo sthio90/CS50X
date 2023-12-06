@@ -43,18 +43,20 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            // Extract RGB values
-            int rgbValues[3] =
-            {
-                image[i][j].rgbtRed,
-                image[i][j].rgbtGreen,
-                image[i][j].rgbtBlue
-            };
-            // Convert sepiaRed
-            image[i][j].rgbtRed = .393 * rgbValues[0] + .769 * rgbValues[1] + .189 * rgbValues[2];
-            image[i][j].rgbtGreen = .349 * rgbValues[0] + .686 * rgbValues[1] + .168 * rgbValues[2];
-            image[i][j].rgbtBlue = .272 * rgbValues[0] + .534 * rgbValues[1] + .131 * rgbValues[2];
+            // Extract original RGB values
+            int originalRed = image[i][j].rgbtRed;
+            int originalGreen = image[i][j].rgbtGreen;
+            int originalBlue = image[i][j].rgbtBlue;
 
+            // Calculate sepia tones
+            int sepiaRed = (int)(.393 * originalRed + .769 * originalGreen + .189 * originalBlue);
+            int sepiaGreen = (int)(.349 * originalRed + .686 * originalGreen + .168 * originalBlue);
+            int sepiaBlue = (int)(.272 * originalRed + .534 * originalGreen + .131 * originalBlue);
+
+            // Clamp values to max 255
+            image[i][j].rgbtRed = sepiaRed > 255 ? 255 : sepiaRed;
+            image[i][j].rgbtGreen = sepiaGreen > 255 ? 255 : sepiaGreen;
+            image[i][j].rgbtBlue = sepiaBlue > 255 ? 255 : sepiaBlue;
         }
     // sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue
     // sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue
