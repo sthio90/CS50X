@@ -1,14 +1,13 @@
 #include "bmp.h"
 
-// Convert image to grayscale - average BGR and set values to ave
+// Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width]);
-    //
 
-// Convert image to sepia - convert BGR using formula
+// Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width]);
 
-// Reflect image horizontally - swap pixels left to right
+// Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width]);
 
-// Blur image - average pixels with 1 column and 1 row pixels away
+// Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width]);
