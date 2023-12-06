@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
  // fread file
     // if header of jpeg
         // fwrite into new output in 512 byte chunks
+        // if fread returns < 512 then end of file and return
     // else (already in jpeg)
         // keep writing
 
