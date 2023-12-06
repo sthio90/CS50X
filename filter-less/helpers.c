@@ -98,14 +98,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             //find the pixels 1 column and 1 row away and average all of them
             // row -1; cycle 3; if ((row -1 >= 0 && < height) && (width >= 0 && < width)) then do funct
-            if ((i >= 0 && i < height) && (j >= 0 && j < width))
+            if ((i - 1 >= 0 && i - 1 < height) && (j - 1 >= 0 && j - 1 < width))
             {
                 // Extract RGB values
                 int rgbValues[3] =
                 {
-                    image[i][j].rgbtBlue,
-                    image[i][j].rgbtGreen,
-                    image[i][j].rgbtRed
+                    image[i - 1][j - 1].rgbtBlue,
+                    image[i - 1][j - 1].rgbtGreen,
+                    image[i - 1][j - 1].rgbtRed
                 };
 
                 // average RGB values of pixels and find average
@@ -115,13 +115,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 copy[i][j].rgbtBlue = ave;
                 copy[i][j].rgbtGreen = ave;
                 copy[i][j].rgbtRed = ave;
-        }
             }
             // row 0
             // row +1
             // average all rows
-
         }
+
+
     }
     return;
 }
