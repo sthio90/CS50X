@@ -2,10 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+ // Define bytes and types
+typedef uint8_t BYTE;
+const BYTE BLOCK_SIZE = 512;
+
 int main(int argc, char *argv[])
 {
- // Define bytes and types
- typedef uint8_t BYTE;
+
  // open files
  FILE *file = fopen(argv[1], "r");
  if (file == NULL)
