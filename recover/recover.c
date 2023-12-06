@@ -16,14 +16,14 @@ int main(int argc, char *argv[])
     fprint("Unable to open file.");
     return 1;
  }
-    //repeat until end of card:
-        // fread file in 512 byte chunks
-        // if header of jpeg
-            // fwrite into new output in 512 byte chunks
-            // if fread returns < 512 then end of file and return
+    while (fread(buffer, 1, BLOCK_SIZE, argv[1]) == BLOCK_SIZE) //repeat until end of card:
+    {
+        // if header of new jpeg
+            // if new jpeg
+            // else if fread returns < 512 then end of file and return
         // else (already in jpeg)
             // keep writing
 
     //close any remaining files
-
+    }
 }
