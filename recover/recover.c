@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
             if (check its first jpeg)
                 // start writing new jpeg
                 {
+                    string filename = argv[1];
                     sprintf(filename, "%03i.jpg", 0);
                     FILE *img = fopen(filename, "w");
                 }
