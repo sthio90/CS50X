@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
             {
                 // start writing new jpeg
                 sprintf(filename, "%03i.jpg", fileCount++);
-                FILE *img = fopen(filename, "w");
+                img = fopen(filename, "w");
                 if (img == NULL)
                 {
                     printf("Could not create file.\n");
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
                 fclose(img);
                 // write new jpeg file
                 sprintf(filename, "%03i.jpg", fileCount++);
-                FILE *img = fopen(filename, "w");
+                img = fopen(filename, "w");
                 if (img == NULL)
                 {
                     printf("Could not create file.\n");
