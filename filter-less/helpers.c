@@ -43,7 +43,13 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            
+            // Extract RGB values
+                        int rgbValues[3] =
+            {
+                image[i][j].rgbtRed,
+                image[i][j].rgbtGreen,
+                image[i][j].rgbtBlue
+            };
         }
     // sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue
     // sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue
