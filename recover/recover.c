@@ -23,7 +23,9 @@ int main(int argc, char *argv[])
     }
 
     BYTE buffer[BLOCK_SIZE]; //buffer file with 512 bytes of memory
-    int isFirstJpeg = 1; // 1 means true, 0 means false
+    char filename[8];
+    FILE *img = NULL;
+
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
