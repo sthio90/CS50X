@@ -90,11 +90,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image - average pixels with 1 column and 1 row pixels away
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    // for (int i = 0; i < height; i++)
-    // {
-    //     for (int j = 0; j < width; j++)
-    //     {}
-    // }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            //find the pixels 1 column and 1 row away and average all of them
+        }
+    }
     return;
 }
 
