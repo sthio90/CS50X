@@ -34,17 +34,18 @@ int main(int argc, char *argv[])
         {
             // if first jpeg
             if (img == NULL)
+
+            {
                 // start writing new jpeg
+                char filename[8];
+                sprintf(filename, "%03i.jpg", fileCount++);
+                FILE *img = fopen(filename, "w");
+                if (img == NULL)
                 {
-                    char filename[8];
-                    sprintf(filename, "%03i.jpg", 0);
-                    FILE *img = fopen(filename, "w");
-                    if (img == NULL)
-                    {
-                        printf("No such file.\n");
-                        return 3;
-                    }
+                    printf("Could not create file.\n");
+                    return 3;
                 }
+            }
             // else if not first jpeg
             else
             {
@@ -55,7 +56,7 @@ int main(int argc, char *argv[])
                 FILE *img = fopen(filename, "w");
                 if (img == NULL)
                 {
-                    printf("No such file.\n");
+                    printf("Could not create file.\n");
                     return 3;
                 }
             }
