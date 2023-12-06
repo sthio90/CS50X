@@ -20,9 +20,9 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             // Extract RGB values
             int rgbValues[3] =
             {
-                image[i][j].rgbtRed,
+                image[i][j].rgbtBlue,
                 image[i][j].rgbtGreen,
-                image[i][j].rgbtBlue
+                image[i][j].rgbtRed
             };
 
         // average BGR values of pixels and find average
@@ -44,12 +44,15 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Extract RGB values
-                        int rgbValues[3] =
+            int rgbValues[3] =
             {
-                image[i][j].rgbtRed,
+                image[i][j].rgbtBlue,
                 image[i][j].rgbtGreen,
-                image[i][j].rgbtBlue
+                image[i][j].rgbtRed
             };
+            // Convert sepiaRed
+            
+
         }
     // sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue
     // sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue
