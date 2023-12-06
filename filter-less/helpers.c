@@ -129,8 +129,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
         // Average of each component
         image[i][j].rgbtRed = totalRed / count;
-        image[i][j].rgbtGreen = totalRed / count;
-        image[i][j].rgbtBlue = totalRed / count;
+        image[i][j].rgbtGreen = totalGreen / count;
+        image[i][j].rgbtBlue = totalBlue / count;
         }
     }
     return;
