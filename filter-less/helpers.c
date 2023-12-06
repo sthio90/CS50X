@@ -98,7 +98,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // row -1; cycle 3; if ((row -1 >= 0 && < height) && (width >= 0 && < width)) then do funct
             if ((i >= 0 && i < height) && (j >= 0 && j < width))
             {
-                
+                // Extract RGB values
+                int rgbValues[3] =
+                {
+                    image[i][j].rgbtBlue,
+                    image[i][j].rgbtGreen,
+                    image[i][j].rgbtRed
+                };
+
+                // average RGB values of pixels and find average
+                int ave = (int)(average(rgbValues, 3) + 0.5);
+                // set values to average
+                image[i][j].rgbtBlue = ave;
+                image[i][j].rgbtGreen = ave;
+                image[i][j].rgbtRed = ave;
+        }
             }
             // row 0
             // row +1
