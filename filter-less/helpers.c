@@ -12,7 +12,7 @@ double average(int arr[], int size) {
 
 void swap(BYTE *a, BYTE *b)
 {
-    BYTE tmp = *a;
+    int tmp = *a;
     *a = *b;
     b* = tmp;
 }
