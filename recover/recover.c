@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
     BYTE buffer[BLOCK_SIZE]; //buffer file with 512 bytes of memory
     char filename[8];
     FILE *img = NULL;
+    int fileCount = 0;
 
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
@@ -32,7 +33,7 @@ int main(int argc, char *argv[])
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
             // if first jpeg
-            if (isFirstJpeg)
+            if (img == NULL)
                 // start writing new jpeg
                 {
                     char filename[8];
@@ -43,17 +44,14 @@ int main(int argc, char *argv[])
                         printf("No such file.\n");
                         return 3;
                     }
-                    isFirstJpeg = 0; // Set the flag to false
-                    fclose(img);
                 }
             // else if not first jpeg
             else
             {
                 // close file
-
+                fclose(img);
                 // write new jpeg file
-                char filename[8];
-                sprintf(filename, "%03i.jpg", 0);
+                sprintf(filename, "%03i.jpg", fileCount++);
                 FILE *img = fopen(filename, "w");
                 if (img == NULL)
                 {
