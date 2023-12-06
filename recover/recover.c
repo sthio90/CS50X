@@ -19,11 +19,17 @@ int main(int argc, char *argv[])
     while (fread(buffer, 1, BLOCK_SIZE, argv[1]) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
-            // if new jpeg
-            // else if fread returns < 512 then end of file and return
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        {
+            // if first jpeg
+            if ()
+                // start writing new jpeg
+            // else if not first jpeg
+                // close file
+                // write new jpeg file
+        }
         // else (already in jpeg)
             // keep writing
-
-    //close any remaining files
     }
+    //close any remaining files
 }
