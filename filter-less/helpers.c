@@ -102,6 +102,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
             // row 0
             // row +1
+            // average all rows
+
         }
     }
     return;
