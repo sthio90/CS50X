@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    int16_t buffer[BLOCK_SIZE]; //buffer file with 512 bytes of memory
+    BYTE buffer[BLOCK_SIZE]; //buffer file with 512 bytes of memory
     int isFirstJpeg = 1; // 1 means true, 0 means false
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
@@ -42,12 +42,13 @@ int main(int argc, char *argv[])
                         return 3;
                     }
                     isFirstJpeg = 0; // Set the flag to false
+                    fclose(img);
                 }
             // else if not first jpeg
             else
             {
                 // close file
-                fclose(img);
+
                 // write new jpeg file
                 char filename[8];
                 sprintf(filename, "%03i.jpg", 0);
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
         else
         {
             // keep writing
-            
+
         }
 
     }
