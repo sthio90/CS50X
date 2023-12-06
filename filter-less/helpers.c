@@ -90,6 +90,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image - average pixels with 1 column and 1 row pixels away
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE copy[height][width]; // Declare copy
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -108,10 +110,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 // average RGB values of pixels and find average
                 int ave = (int)(average(rgbValues, 3) + 0.5);
-                // set values to average
-                image[i][j].rgbtBlue = ave;
-                image[i][j].rgbtGreen = ave;
-                image[i][j].rgbtRed = ave;
+
+                // set values to average IN COPY
+                copy[i][j].rgbtBlue = ave;
+                copy[i][j].rgbtGreen = ave;
+                copy[i][j].rgbtRed = ave;
         }
             }
             // row 0
