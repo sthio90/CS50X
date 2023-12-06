@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        printf("Improper usage.");
+        printf("Improper usage.\n");
         return 1;
     }
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     FILE *file = fopen(argv[1], "r");
     if (file == NULL)
     {
-        fprint("Unable to open file.");
+        fprint("Unable to open file.\n");
         return 2;
     }
 
@@ -31,9 +31,14 @@ int main(int argc, char *argv[])
             if (check its first jpeg)
                 // start writing new jpeg
                 {
-                    
+
                     sprintf(filename, "%03i.jpg", 0);
                     FILE *img = fopen(filename, "w");
+                    if (img == NULL)
+                    {
+                        printf("No such file.\n");
+                        return 3;
+                    }
                 }
             // else if not first jpeg
                 // close file
