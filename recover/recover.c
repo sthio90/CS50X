@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     FILE *img = NULL;
     int fileCount = 0;
 
-    while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
+    while (fread(buffer, BLOCK_SIZE, 1, file) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
                     printf("Could not create file.\n");
                     return 3;
                 }
-        
+
         // else (already in jpeg)
         if (img != NULL)
         {
