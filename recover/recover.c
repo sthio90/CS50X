@@ -4,7 +4,7 @@
 
  // Define bytes and types
 typedef uint8_t BYTE;
-const BYTE BLOCK_SIZE = 512;
+const int BLOCK_SIZE = 512;
 
 int main(int argc, char *argv[])
 {
@@ -48,4 +48,6 @@ int main(int argc, char *argv[])
             // keep writing
     }
     //close any remaining files
+    fclose(argv[1]);
+    fclose(filename);
 }
