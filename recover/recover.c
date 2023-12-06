@@ -40,21 +40,21 @@ int main(int argc, char *argv[])
 
             }
             // if not first jpeg
-                // write new jpeg file
-                sprintf(filename, "%03i.jpg", fileCount++);
-                img = fopen(filename, "w");
-                if (img == NULL)
-                {
-                    printf("Could not create file.\n");
-                    return 3;
-                }
+            // write new jpeg file
+            sprintf(filename, "%03i.jpg", fileCount++);
+            img = fopen(filename, "w");
+            if (img == NULL)
+            {
+                printf("Could not create file.\n");
+                return 3;
+            }
 
-        // else (already in jpeg)
-        if (img != NULL)
-        {
-            // keep writing
-            fwrite(buffer, BLOCK_SIZE, 1, img);
-        }
+            // else (already in jpeg)
+            if (img != NULL)
+            {
+                // keep writing
+                fwrite(buffer, BLOCK_SIZE, 1, img);
+            }
 
     }
     //close any remaining files
