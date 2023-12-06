@@ -12,8 +12,9 @@ double average(int arr[], int size) {
 
 void swap(int *a, int *b)
 {
-    int tmp = *a
-    
+    int tmp = *a;
+    *a = *b;
+    b* = tmp;
 }
 
 // Convert image to grayscale - average BGR and set values to ave
@@ -78,7 +79,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-
+            
         }
     }
     return;
