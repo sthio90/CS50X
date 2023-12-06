@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     int16_t buffer[BLOCK_SIZE]; //buffer file with 512 bytes of memory
 
-    while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
+    while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
