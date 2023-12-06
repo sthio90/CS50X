@@ -20,7 +20,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             // Extract RGB values
             int rgbValues[3] =
             {
-                image[i][j].rbgtRed,
+                image[i][j].rgbtRed,
                 image[i][j].rgbtGreen,
                 image[i][j].rgbtBlue
             };
