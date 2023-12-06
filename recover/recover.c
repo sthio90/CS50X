@@ -9,14 +9,14 @@ const BYTE BLOCK_SIZE = 512;
 int main(int argc, char *argv[])
 {
 
- // open files
- FILE *file = fopen(argv[1], "r");
- if (file == NULL)
- {
-    fprint("Unable to open file.");
-    return 1;
- }
- for (i = 0; )
+    // open files
+    FILE *file = fopen(argv[1], "r");
+    if (file == NULL)
+    {
+        fprint("Unable to open file.");
+        return 1;
+    }
+
     while (fread(buffer, 1, BLOCK_SIZE, argv[1]) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
