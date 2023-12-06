@@ -33,23 +33,15 @@ int main(int argc, char *argv[])
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
             // if first jpeg
-            if (img == NULL)
-
+            if (!img == NULL)
             {
-                // start writing new jpeg
-                sprintf(filename, "%03i.jpg", fileCount++);
-                img = fopen(filename, "w");
-                if (img == NULL)
-                {
-                    printf("Could not create file.\n");
-                    return 3;
-                }
+                // close file
+                fclose(img);
+
             }
             // else if not first jpeg
             else
             {
-                // close file
-                fclose(img);
                 // write new jpeg file
                 sprintf(filename, "%03i.jpg", fileCount++);
                 img = fopen(filename, "w");
