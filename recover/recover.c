@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
         }
         // else (already in jpeg)
-        else
+        if
         {
             // keep writing
 
