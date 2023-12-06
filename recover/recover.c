@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    while (fread(&file, 1, BLOCK_SIZE, argv[1]) == BLOCK_SIZE) //repeat until end of card:
+    while (fread(, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
