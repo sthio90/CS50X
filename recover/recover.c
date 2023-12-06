@@ -7,5 +7,7 @@ int main(int argc, char *argv[])
  // open files
  // fread file
     // if header of jpeg
-        // fwrite 
+        // fwrite into new outputin 512 byte chunks
+    // else
+
 }
