@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     fprint("Unable to open file.");
     return 1;
  }
+ for (i = 0; )
     while (fread(buffer, 1, BLOCK_SIZE, argv[1]) == BLOCK_SIZE) //repeat until end of card:
     {
         // if header of new jpeg
