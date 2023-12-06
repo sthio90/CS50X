@@ -21,7 +21,8 @@ int main(int argc, char *argv[])
         printf("Unable to open file.\n");
         return 2;
     }
-    int16_t buffer; //buffer file
+
+    int16_t buffer[BLOCK_SIZE]; //buffer file with 512 bytes of memory
 
     while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE) //repeat until end of card:
     {
