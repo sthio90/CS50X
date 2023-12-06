@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
             if (check its first jpeg)
                 // start writing new jpeg
                 {
-                    sprintf(buffer, "%3i.jpg", i);
+                    sprintf(filename, "%03i.jpg", i);
                     FILE *file = fopen()
                 }
             // else if not first jpeg
