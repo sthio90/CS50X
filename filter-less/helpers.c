@@ -96,7 +96,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             //find the pixels 1 column and 1 row away and average all of them
             // row -1; cycle 3; if ((row >= 0 && < height) && (width >= 0 && < width)) then do funct
-            for (int upper = j - 1; upper < )
+            for (int upper = j - 1; upper < ; upper++)
             // row 0
             // row +1
         }
