@@ -49,9 +49,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             int originalBlue = image[i][j].rgbtBlue;
 
             // Calculate sepia tones
-            int sepiaRed = (int)(.393 * originalRed + .769 * originalGreen + .189 * originalBlue);
-            int sepiaGreen = (int)(.349 * originalRed + .686 * originalGreen + .168 * originalBlue);
-            int sepiaBlue = (int)(.272 * originalRed + .534 * originalGreen + .131 * originalBlue);
+            int sepiaRed = (int)(.393 * originalRed + .769 * originalGreen + .189 * originalBlue + 0.5);
+            int sepiaGreen = (int)(.349 * originalRed + .686 * originalGreen + .168 * originalBlue + 0.5);
+            int sepiaBlue = (int)(.272 * originalRed + .534 * originalGreen + .131 * originalBlue + 0.5);
 
             // Clamp values to max 255
             image[i][j].rgbtRed = sepiaRed > 255 ? 255 : sepiaRed;
@@ -68,11 +68,13 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally - swap pixels left to right
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    // for (int i = 0; i < height; i++)
-    // {
-    //     for (int j = 0; j < width; j++)
-    //     {}
-    // }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            
+        }
+    }
     return;
 }
 
