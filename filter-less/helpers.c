@@ -14,7 +14,7 @@ void swap(BYTE *a, BYTE *b)
 {
     int tmp = *a;
     *a = *b;
-    b* = tmp;
+    *b = tmp;
 }
 
 // Convert image to grayscale - average BGR and set values to ave
