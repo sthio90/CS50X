@@ -39,9 +39,7 @@ int main(int argc, char *argv[])
                 fclose(img);
 
             }
-            // else if not first jpeg
-            else
-            {
+            // if not first jpeg
                 // write new jpeg file
                 sprintf(filename, "%03i.jpg", fileCount++);
                 img = fopen(filename, "w");
@@ -50,9 +48,7 @@ int main(int argc, char *argv[])
                     printf("Could not create file.\n");
                     return 3;
                 }
-            }
-
-        }
+        
         // else (already in jpeg)
         if (img != NULL)
         {
