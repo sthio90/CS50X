@@ -92,36 +92,46 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width]; // Declare copy
 
+    // Copy original to copy
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            //find the pixels 1 column and 1 row away and average all of them
-            // row -1; cycle 3; if ((row -1 >= 0 && < height) && (width >= 0 && < width)) then do funct
-            if ((i - 1 >= 0 && i - 1 < height) && (j - 1 >= 0 && j - 1 < width))
-            {
-                // Extract RGB values
-                int rgbValues[3] =
-                {
-                    image[i - 1][j - 1].rgbtBlue,
-                    image[i - 1][j - 1].rgbtGreen,
-                    image[i - 1][j - 1].rgbtRed
-                };
-
-                // average RGB values of pixels and find average
-                int ave = (int)(average(rgbValues, 3) + 0.5);
-
-                // set values to average IN COPY
-                copy[i][j].rgbtBlue = ave;
-                copy[i][j].rgbtGreen = ave;
-                copy[i][j].rgbtRed = ave;
-            }
-            // row 0
-            // row +1
-            // average all rows
+            copy[i][j] = image[i][j];
         }
+    }
+    // Apply blur to each pixel
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int totalRed = 0, totalGreen = 0, totalBlue = 0;
+            int count = 0;
+
+            //find the pixels 1 column and 1 row away and average all of them
+            for (int di = -1; di <= 1; di++)
+            {
+                for (int dj = -1; dj <=1; dj++)
+                {
+                    int newI = i + di;
+                    int newJ = j +dj;
+
+                    if (newI >=0 && newI < height && newJ >= 0 && newJ < width)
+                    {
+                        totalRed += copy[newI][newJ].rgbtRed;
+                        totalGreen += copy[newI][newJ].rgbtGreen;
+                        totalBlue += copy[newI][newJ].rgbtBlue;
+                        count++;
+                    }
+                }
+            }
 
 
+        // Average of each component
+        image[i][j].rgbtRed = totalRed / count;
+        image[i][j].rgbtGreen = totalRed / count;
+        image[i][j].rgbtBlue = totalRed / count;
+        }
     }
     return;
 }
