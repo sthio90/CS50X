@@ -8,6 +8,11 @@ int main(int argc, char *argv[])
  typedef uint8_t BYTE;
  // open files
  FILE *file = fopen(argv[1], "r");
+ if (file == NULL)
+ {
+    fprint("Unable to open file.");
+    return 1;
+ }
 
  // fread file
     // if header of jpeg
