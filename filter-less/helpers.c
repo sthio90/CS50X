@@ -13,10 +13,18 @@ double average(int arr[], int size) {
 // Convert image to grayscale - average BGR and set values to ave
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
-    // average BGR values of pixels and find average
-    int ave = average(image[height][width], 3);
-    // set values to average
-    
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; i < width; j++)
+        {
+        // average BGR values of pixels and find average
+        int ave = average(image[height][width], 3);
+        // set values to average
+        image[height][width].rgbtBlue = ave;
+        image[height][width].rgbtGreen = ave;
+        image[height][width].rgbtRed = ave;
+        }
+    }
     return;
 }
 
