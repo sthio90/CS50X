@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
                 printf("Could not create file.\n");
                 return 3;
             }
-
+        }
         // else (already in jpeg)
         if (img != NULL)
         {
@@ -54,11 +54,11 @@ int main(int argc, char *argv[])
             fwrite(buffer, BLOCK_SIZE, 1, img);
         }
     }
-    //close any remaining files
-    if (img != NULL)
-    {
-        fclose(img);
-    }
-    fclose(file);
-    return 0;
+        //close any remaining files
+        if (img != NULL)
+        {
+            fclose(img);
+        }
+        fclose(file);
+        return 0;
 }
