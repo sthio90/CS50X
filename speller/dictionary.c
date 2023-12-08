@@ -22,7 +22,7 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    
+
     // node *n = malloc(sizeof(node));
     // strcpy(n->word, "Hello");
     // n->next = NULL;
@@ -42,11 +42,14 @@ bool load(const char *dictionary)
     // TODO
     // fopen file
     FILE *file = fopen(dictionary, "r");
-    if (file != NULL)
+    if (file == NULL)
     {
-        return true;
+        return false;
     }
-    return false;
+    node *n = malloc(sizeof(node));
+    strcpy(n->word, "Hello");
+    n->next = NULL;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
