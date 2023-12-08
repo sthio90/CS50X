@@ -22,6 +22,9 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    node *n = malloc(sizeof(node));
+    strcpy(n->word, "Hello");
+    n->next =NULL;
     return false;
 }
 
@@ -36,9 +39,8 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    node *n = malloc(sizeof(node));
-    strcpy(n->word, "Hello");
-    n->next =NULL;
+    // fopen file
+    fopen(argv[1])
     return false;
 }
 
