@@ -59,7 +59,12 @@ bool load(const char *dictionary)
         }
         strcpy(n->word, word);
         unsigned int index = hash(word);
+
+        // Insert node into the hash table at the calculated index
+        n->next = table[index];
+        table[index] = n;
     }
+    fclose(file);
     return true;
 }
 
