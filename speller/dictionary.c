@@ -27,9 +27,9 @@ bool check(const char *word)
 {
     // TODO
     // create temp word in lower case
-    char temp_word[LENGTH + 1]
+    char temp_word[LENGTH + 1];
     int len = strlen(word);
-    for (int i = 0; i < word; i++)
+    for (int i = 0; i < len; i++)
     {
         temp_word[i] = tolower(word[i]);
     }
