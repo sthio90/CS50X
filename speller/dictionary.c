@@ -26,10 +26,7 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-
-    // node *n = malloc(sizeof(node));
-    // strcpy(n->word, "Hello");
-    // n->next = NULL;
+    
     return false;
 }
 
@@ -65,7 +62,7 @@ bool load(const char *dictionary)
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
-            return 1;
+            return false;
         }
         strcpy(n->word, word);
         unsigned int index = hash(word);
