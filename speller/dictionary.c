@@ -33,11 +33,19 @@ bool check(const char *word)
     {
         temp_word[i] = tolower(word[i]);
     }
+    temp_word[len] = '\0';
 
     // get hash index
-    unsigned int index = hash(temp_word)
+    unsigned int index = hash(temp_word);
     // strcomp temp word and dict word
-
+    node *cursor = table[index];
+    while (cursor != NULL)
+    {
+        if (strcmp(temp_word, cursor->word) == 0)
+        {
+            return true;
+        }
+    }
     return false;
 }
 
