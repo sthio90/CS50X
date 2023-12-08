@@ -1,11 +1,11 @@
 // Implements a dictionary's functionality
 
+#include "dictionary.h"
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "dictionary.h"
 
 // Declare global word count
 unsigned int word_count = 0;
@@ -63,7 +63,6 @@ unsigned int hash(const char *word)
     }
 
     return hash % N;
-
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -76,8 +75,8 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    char word[LENGTH +1];
-    while (fscanf(file, "%s", word) !=EOF)
+    char word[LENGTH + 1];
+    while (fscanf(file, "%s", word) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
@@ -90,7 +89,7 @@ bool load(const char *dictionary)
         // Insert node into the hash table at the calculated index
         n->next = table[index];
         table[index] = n;
-        word_count++; // Increment word count
+        word_count++; 
     }
     fclose(file);
     return true;
