@@ -26,7 +26,12 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    // create temp word in lower case
+    char temp.word[LENGTH + 1]
     
+    // get hash index
+    // strcomp temp word and dict word
+
     return false;
 }
 
