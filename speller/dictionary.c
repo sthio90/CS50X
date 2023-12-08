@@ -105,19 +105,24 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
-    // create cursor point to index head
-    node *cursor = table[0];
-
-    // while loop to go through index
-    while (cursor != NULL)
+    // Iterate over each bucket in the hash table
+    for (int i = 0; i < N; i++)
     {
-        // create temp variable pointing to cursor
-        node *temp = cursor;
-        // move cursor to next
-        cursor = cursor->next;
-        free(temp);
+        // Set cursor to point to the head of the linked list at the current bucket
+        node *cursor = table[i];
+
+        // Traverse the linked list and free nodes
+        while (cursor != NULL)
+        {
+            // Create temp variable pointing to cursor
+            node *temp = cursor;
+
+            // Move cursor to the next node
+            cursor = cursor->next;
+
+            // Free the node pointed to by temp
+            free(temp);
+        }
     }
-    free(cursor);
-    return false;
+    return true;
 }
