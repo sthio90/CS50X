@@ -22,6 +22,7 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    
     // node *n = malloc(sizeof(node));
     // strcpy(n->word, "Hello");
     // n->next = NULL;
