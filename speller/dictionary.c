@@ -7,6 +7,8 @@
 #include <string.h>
 #include "dictionary.h"
 
+// Declare global word count
+unsigned int word_count = 0;
 // Represents a node in a hash table
 typedef struct node
 {
@@ -71,6 +73,7 @@ bool load(const char *dictionary)
         // Insert node into the hash table at the calculated index
         n->next = table[index];
         table[index] = n;
+        word_count++; // Increment word count
     }
     fclose(file);
     return true;
@@ -80,7 +83,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    return word_count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
