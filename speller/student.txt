@@ -960,7 +960,7 @@ L
 WORDS MISSPELLED:     955
 WORDS IN DICTIONARY:  143091
 WORDS IN TEXT:        17756
-TIME IN load:         0.02
+TIME IN load:         0.03
 TIME IN check:        0.02
 TIME IN size:         0.00
 TIME IN unload:       0.01
