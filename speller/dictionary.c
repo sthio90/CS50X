@@ -106,6 +106,18 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    char cursor
+    // create cursor point to index head
+    node *cursor = table[0];
+
+    // while loop to go through index
+    while (cursor != NULL)
+    {
+        // create temp variable pointing to cursor
+        node *temp = cursor;
+        // move cursor to next
+        cursor = cursor->next;
+        free(temp);
+    }
+    free(cursor);
     return false;
 }
