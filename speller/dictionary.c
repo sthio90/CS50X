@@ -27,9 +27,15 @@ bool check(const char *word)
 {
     // TODO
     // create temp word in lower case
-    char temp.word[LENGTH + 1]
-    
+    char temp_word[LENGTH + 1]
+    int len = strlen(word);
+    for (int i = 0; i < word; i++)
+    {
+        temp_word[i] = tolower(word[i]);
+    }
+
     // get hash index
+    unsigned int index = hash(temp_word)
     // strcomp temp word and dict word
 
     return false;
