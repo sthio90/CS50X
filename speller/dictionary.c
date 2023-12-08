@@ -45,6 +45,7 @@ bool check(const char *word)
         {
             return true;
         }
+        cursor = cursor->next; // Advance cursor to the next node
     }
     return false;
 }
