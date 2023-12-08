@@ -106,5 +106,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    char cursor
     return false;
 }
