@@ -22,9 +22,9 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    node *n = malloc(sizeof(node));
-    strcpy(n->word, "Hello");
-    n->next =NULL;
+    // node *n = malloc(sizeof(node));
+    // strcpy(n->word, "Hello");
+    // n->next = NULL;
     return false;
 }
 
@@ -40,7 +40,11 @@ bool load(const char *dictionary)
 {
     // TODO
     // fopen file
-    fopen(argv[1])
+    FILE *file = fopen(dictionary, "w");
+    if (file != NULL)
+    {
+        return true;
+    }
     return false;
 }
 
