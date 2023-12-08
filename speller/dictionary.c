@@ -57,8 +57,8 @@ bool load(const char *dictionary)
         {
             return 1;
         }
-        strcpy(n->word, "Hello");
-        n->next = NULL;
+        strcpy(n->word, word);
+        unsigned int index = hash(word);
     }
     return true;
 }
