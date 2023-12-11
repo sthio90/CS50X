@@ -5,7 +5,7 @@ def main():
     # Get user card input
     while True:
         try:
-            card = get_int("Number: ")
+            card = cs50.get_int("Number: ")
             if card > 0:
                 break
             else:
