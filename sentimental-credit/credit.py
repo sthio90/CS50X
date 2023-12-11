@@ -20,8 +20,7 @@ def main():
     while card_number > 0:
         digit = cardNumber % 10
         length += 1
-        if (length % 2 == 0)
-        {
+        if length % 2 == 0:
             digit *= 2;
             sum += digit / 10 + digit % 10;
         }
