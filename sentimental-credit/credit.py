@@ -21,8 +21,8 @@ def main():
         digit = cardNumber % 10
         length += 1
         if length % 2 == 0:
-            digit *= 2;
-            sum += digit / 10 + digit % 10;
+            digit *= 2
+            sum += digit / 10 + digit % 10
         }
         else
         {
