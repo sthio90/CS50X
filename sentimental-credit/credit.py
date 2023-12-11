@@ -29,38 +29,20 @@ def main():
 
 
     # TODO check for card length and starting digits
-    if (sum % 10 == 0)
-    {
-        // TODO Getting the first two digits
-        while (card >= 100)
-        {
-            card /= 10;
-        }
-        int firstTwoDigits = card;
+    if sum % 10 == 0:
+        # Getting the first two digits
+        first_two_digits = int(str(card)[:2])
 
-        if ((length == 15) && (firstTwoDigits == 34 || firstTwoDigits == 37))
-        {
-            printf("AMEX\n");
-        }
-        else if ((length == 16) && (firstTwoDigits >= 51 && firstTwoDigits <= 55))
-        {
-            printf("MASTERCARD\n");
-        }
-        else if ((length == 13 || length == 16) && (firstTwoDigits / 10 == 4))
-        {
-            printf("VISA\n");
-        }
-        else
-        {
-            printf("INVALID\n");
-        }
-    }
-    else
-    {
-        printf("INVALID\n");
-    }
-
-    return 0;
+        if (length == 15) and (first_two_digits == 34 or first_two_digits == 37):
+            print("AMEX")
+        elif (length == 16) and (51 <= first_two_digits <= 55):
+            print("MASTERCARD")
+        elif (length == 13 or length == 16) and (first_two_digits // 10 == 4):
+            print("VISA")
+        else:
+            print("INVALID")
+    else:
+        print("INVALID")
 
 if __name__ == "__main__":
     main()
