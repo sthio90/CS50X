@@ -19,12 +19,12 @@ def print_blocks(height):
     for i in range(height):
         for j in range(height - i - 1): # Spaces
             print(" ")
-        for j in range(height + 1) # L blocks
+        for j in range(height + 1): # L blocks
             print("#")
 
         print("  ") # Gap
 
-        for j in range(height + 1) # R blocks
+        for j in range(height + 1): # R blocks
             print("#")
 
 
