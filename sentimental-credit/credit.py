@@ -1,46 +1,45 @@
 import cs50
-# TODO
 
 def main():
     # Get user card input
     while True:
-        try:
-            card = cs50.get_int("Number: ")
-            if card > 0:
-                break
-            else:
-                print("Invalid number.")
-        except ValueError:
-            print("Please enter numbers only.")
-
-    # TODO calculate checksum using Luhn's algo
-    sum = 0
-    card_number = card
-    length = 0
-    while card_number > 0:
-        digit = cardNumber % 10
-        length += 1
-        if length % 2 == 0:
-            digit *= 2
-            sum += digit // 10 + digit % 10
-        else
-            sum += digit
-        cardNumber //= 10
-
-
-    # TODO check for card length and starting digits
-    if sum % 10 == 0:
-        # Getting the first two digits
-        first_two_digits = int(str(card)[:2])
-
-        if (length == 15) and (first_two_digits == 34 or first_two_digits == 37):
-            print("AMEX")
-        elif (length == 16) and (51 <= first_two_digits <= 55):
-            print("MASTERCARD")
-        elif (length == 13 or length == 16) and (first_two_digits // 10 == 4):
-            print("VISA")
+        card = cs50.get_int("Number: ")
+        if card > 0:
+            break
         else:
-            print("INVALID")
+            print("Invalid number.")
+
+    if is_valid_card(card):
+        print_card_type(card)
+    else:
+        print("INVALID")
+
+def is_valid_card(card):
+    card_str = str(card)
+    sum = 0
+
+    # Luhn’s Algorithm
+    for i, digit in enumerate(reversed(card_str)):
+        num = int(digit)
+        if i % 2 == 1:
+            num *= 2
+            if num > 9:
+                num -= 9
+        sum += num
+
+    return sum % 10 == 0
+
+def print_card_type(card):
+    card_str = str(card)
+    length = len(card_str)
+    first_two_digits = int(card_str[:2])
+
+    if length == 15 and first_two_digits in [34, 37]:
+        print("AMEX")
+    elif length == 16 and 51 <= first_two_digits <= 55:
+        print("MASTERCARD")
+    elif length in [13, 16] and card_str.startswith("4"):
+        print("VISA")
     else:
         print("INVALID")
 
