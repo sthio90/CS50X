@@ -16,11 +16,11 @@ def main():
 
     teams = []
     # TODO: Read teams into memory from file
-    file = open(sys.argv[1], "r")
-    for line in file:
-        team = line.rstrip()
-        teams.add(team)
-    close(file)
+    with open(sys.argv[1], "r") as file:
+        for line in file:
+            team = line.rstrip()
+            teams.add(team)
+        close(file)
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
