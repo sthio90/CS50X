@@ -12,6 +12,14 @@ def main():
         else:
             print("Invalid input. Please enter a valid name.")
 
+    print_blocks(height)
+
+def print_blocks(height):
+    # Print spaces, L blocks, gap, R blocks
+    for i in range(height):
+        for j in range(height - i - 1): # Spaces
+            print("#")
+        for j in range
 
 if __name__ == "__main__":
     main()
