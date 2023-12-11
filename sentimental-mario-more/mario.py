@@ -11,6 +11,9 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a whole number.")
 
+    # Print out blocks of height
+    
+
 
 if __name__ == "__main__":
     main()
