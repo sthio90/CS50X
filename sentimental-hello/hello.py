@@ -1,6 +1,7 @@
 # TODO
 def main():
     name = input("What is your name? ")
+    name = name.strip()capitalize(name)
     print(f"hello, {name}")
 
 
