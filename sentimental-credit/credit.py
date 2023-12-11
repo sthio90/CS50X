@@ -7,5 +7,8 @@ def main():
     # checksum
     # print card type
 
+def checksum(card):
+    
+
 if __name__ == "__main__":
     main()
