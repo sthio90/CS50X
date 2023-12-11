@@ -9,7 +9,7 @@ Times:
 
 Questions:
 
-Which predictions, if any, proved incorrect as you increased the number of simulations?: With a small number of simulations, 
+Which predictions, if any, proved incorrect as you increased the number of simulations?: With a small number of simulations, Spain was predicted to win in one of the simulations otherwise it was either Brazil or Belgium.
 
 Suppose you're charged a fee for each second of compute time your program uses.
-After how many simulations would you call the predictions "good enough"?: TODO
+After how many simulations would you call the predictions "good enough"?: After 100000 simulations.
