@@ -1,5 +1,6 @@
 import cs50
 
+
 def main():
     # Get user card input
     while True:
@@ -13,6 +14,7 @@ def main():
         print_card_type(card)
     else:
         print("INVALID")
+
 
 def is_valid_card(card):
     card_str = str(card)
@@ -29,6 +31,7 @@ def is_valid_card(card):
 
     return sum % 10 == 0
 
+
 def print_card_type(card):
     card_str = str(card)
     length = len(card_str)
@@ -42,6 +45,7 @@ def print_card_type(card):
         print("VISA")
     else:
         print("INVALID")
+
 
 if __name__ == "__main__":
     main()
