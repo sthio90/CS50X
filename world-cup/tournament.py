@@ -19,7 +19,7 @@ def main():
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
         for line in reader:
-            team = line.rstrip()
+            team =  dict()
             teams.add(team)
 
     counts = {}
