@@ -14,6 +14,7 @@ def main():
     # Print out blocks of height
     print_blocks(height)
 
+
 def print_blocks(height):
     # Print spaces, L blocks, gap, R blocks
     for i in range(height):
@@ -28,6 +29,7 @@ def print_blocks(height):
 
         # Print right blocks
         print("#" * (i + 1))
+
 
 if __name__ == "__main__":
     main()
