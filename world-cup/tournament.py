@@ -17,7 +17,11 @@ def main():
     teams = []
     # TODO: Read teams into memory from file
     file = open(sys.argv[1], "r")
-    for line
+    for line in file:
+        word = line.rstrip()
+        teams.add(word)
+    close(file)
+    return True
 
 
 
