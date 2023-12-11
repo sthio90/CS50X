@@ -13,17 +13,13 @@ def main():
         except ValueError:
             print("Please enter numbers only.")
 
-    # checksum
-    # print card type
-
-        // TODO calculate checksum using Luhn's algo
-    int sum = 0;
-    long cardNumber = card;
-    int length = 0;
-    while (cardNumber > 0)
-    {
-        int digit = cardNumber % 10;
-        length++;
+    # TODO calculate checksum using Luhn's algo
+    sum = 0
+    card_number = card
+    length = 0
+    while card_number > 0:
+        digit = cardNumber % 10
+        length += 1
         if (length % 2 == 0)
         {
             digit *= 2;
@@ -69,10 +65,6 @@ def main():
     }
 
     return 0;
-
-def checksum(card):
-    return
-
 
 if __name__ == "__main__":
     main()
