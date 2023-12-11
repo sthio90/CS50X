@@ -17,16 +17,17 @@ def main():
 def print_blocks(height):
     # Print spaces, L blocks, gap, R blocks
     for i in range(height):
-        for j in range(height - i - 1): # Spaces
-            print(" ")
-        for j in range(height + 1): # L blocks
-            print("#")
+        # Print left spaces
+        print(" " * (height - i - 1), end="")
 
-        print("  ") # Gap
+        # Print left blocks
+        print("#" * (i + 1), end="")
 
-        for j in range(height + 1): # R blocks
-            print("#")
+        # Print gap
+        print("  ", end="")
 
+        # Print right blocks
+        print("#" * (i + 1))
 
 if __name__ == "__main__":
     main()
