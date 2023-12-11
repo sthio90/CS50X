@@ -23,13 +23,10 @@ def main():
         if length % 2 == 0:
             digit *= 2
             sum += digit / 10 + digit % 10
-        }
         else
-        {
-            sum += digit;
-        }
-        cardNumber /= 10;
-    }
+            sum += digit
+        cardNumber /= 10
+        
 
     // TODO check for card length and starting digits
     if (sum % 10 == 0)
