@@ -12,5 +12,6 @@ def main():
         else:
             print("Invalid input. Please enter a valid name.")
 
+
 if __name__ == "__main__":
     main()
