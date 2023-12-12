@@ -34,8 +34,9 @@ def main():
     print(strNum)
 
     # TODO: Check database for matching profiles
-    if strNum == database[1:]:
-        print(f"{database["name"]}")
+    for i in range(len(database)):
+        if strNum == database[i][1:]:
+            print(f"{database["name"]}")
 
     return
 
