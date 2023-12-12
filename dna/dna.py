@@ -30,7 +30,6 @@ def main():
     for profile in database:
         # Convert STR counts in profile to integers
         profile_counts = [int(profile[str_pattern]) for str_pattern in str_patterns]
-
         # Check if the STR counts match
         if str_counts == profile_counts:
             print(profile["name"])
