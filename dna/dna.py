@@ -13,6 +13,7 @@ def main():
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
+        str_patterns = reader.fieldnames[1:]
         for row in reader:
             database.append(row)
 
@@ -21,9 +22,6 @@ def main():
         dna_sequence = file.read().strip()
 
     # TODO: Find longest match of each STR in DNA sequence
-    str_patterns = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
-
-    # Find longest match of each STR in DNA sequence
     str_counts = [longest_match(dna_sequence, pattern) for pattern in str_patterns]
 
     # TODO: Check database for matching profiles
