@@ -25,7 +25,7 @@ def main():
 
 
     # TODO: Find longest match of each STR in DNA sequence
-    str = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
+    str_patterns = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
     strNum = []
     strLen = len(str)
     for i in range(strLen):
