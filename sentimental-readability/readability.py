@@ -6,13 +6,10 @@ def main():
 
     # Count letters, words, and sentences
     count = count_letters(text)
-    print(count)
 
     words = count_words(text)
-    print(words)
 
     sentences = count_sentences(text)
-    print(sentences)
 
     # Calculate and print grade
     grade = cl_index(count, words, sentences)
