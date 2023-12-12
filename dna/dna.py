@@ -15,30 +15,29 @@ def main():
         reader = csv.DictReader(file)
         for row in reader:
             database.append(row)
-    print(database)
-
 
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as file:
         dna_sequence = file.read().strip()
-    print(dna_sequence)
-
 
     # TODO: Find longest match of each STR in DNA sequence
     str_patterns = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
-    strNum = []
-    strLen = len(str)
-    for i in range(strLen):
-        lm = longest_match(dna_sequence, str[i])
-        strNum.append(lm)
-    print(strNum)
+
+    # Find longest match of each STR in DNA sequence
+    str_counts = [longest_match(dna_sequence, pattern) for pattern in str_patterns]
 
     # TODO: Check database for matching profiles
-    for i in range(len(database)):
-        if strNum == database[i][1:]:
-            print(f"{database["name"]}")
+    for profile in database:
+        # Convert STR counts in profile to integers
+        profile_counts = [int(profile[str_pattern]) for str_pattern in str_patterns]
 
-    return
+        # Check if the STR counts match
+        if str_counts == profile_counts:
+            print(profile["name"])
+            break
+    else:
+        print("No match")
+        return
 
 
 def longest_match(sequence, subsequence):
