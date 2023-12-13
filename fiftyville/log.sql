@@ -64,6 +64,22 @@ SELECT *
     FROM airports;
 -- | 4  | LGA          | LaGuardia Airport                       | New York City |
 
+-- Identify passport_numbers from flight 36
+SELECT *
+    FROM passengers WHERE flight_id = 36;
+-- +-----------+-----------------+------+
+-- | flight_id | passport_number | seat |
+-- +-----------+-----------------+------+
+-- | 36        | 7214083635      | 2A   |
+-- | 36        | 1695452385      | 3B   |
+-- | 36        | 5773159633      | 4A   |
+-- | 36        | 1540955065      | 5C   |
+-- | 36        | 8294398571      | 6C   |
+-- | 36        | 1988161715      | 6D   |
+-- | 36        | 9878712108      | 7A   |
+-- | 36        | 8496433585      | 7B   |
+-- +-----------+-----------------+------+
+
 -- Review phone calls made on the day of the theft and lasting less than a minute
 SELECT *
     FROM phone_calls WHERE year = 2021 AND month = 7 AND day = 28 AND duration <60;
