@@ -9,9 +9,8 @@ Reflecting on Spotify's Audio Aura Calculation:
     | 0.65906     | 0.71646           | 0.484443     |
     +-------------+-------------------+--------------+
     -Interpretation based on averages:
-        -High Average Energy: More intense and dynamic musical preference.
-        -High Average Valence: Preference for positive and uplifting music.
-        -High Average Danceability: Preference for rhythmically engaging music.
+        These averages suggest that the listener's "audio aura" is characterized by a moderately high level of energy and danceability, with a somewhat neutral to positive valence.
+        This indicates a preference for songs that are energetic and conducive to dancing, with a balanced emotional tone
 
 2. Limitations and Proposed Improvements:
     -Single Year Data: Data from 2018 may not fully represent current musical preferences.
