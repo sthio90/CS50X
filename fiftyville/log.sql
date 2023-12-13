@@ -7,13 +7,6 @@ SELECT * FROM crime_scene_reports
 -- | 295 | 2021 | 7     | 28  | Humphrey Street | Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery. Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery. |
 -- | 297 | 2021 | 7     | 28  | Humphrey Street | Littering took place at 16:36. No known witnesses.
 
--- Find all activities at the bakery on July 28, 2021
-SELECT * FROM bakery_security_logs
-    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10;
-
--- | 259 | 2021 | 7     | 28  | 10   | 14     | entrance | 13FNH73
--- | 260 | 2021 | 7     | 28  | 10   | 16     | exit     | 5P2BI95
-
 -- Retrieve interviews from around the date of the crime
 SELECT * FROM interviews
     WHERE year = 2021 AND month = 7 AND day = 28 AND transcript LIKE '%bakery%';
@@ -24,6 +17,14 @@ SELECT * FROM interviews
 -- | 162 | Eugene  | 2021 | 7     | 28  | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |
 -- | 163 | Raymond | 2021 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 -- +-----+---------+------+-------+-----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+-- Find all activities at the bakery on July 28, 2021
+SELECT * FROM bakery_security_logs
+    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute between 15 to 25;
+
+-- | 259 | 2021 | 7     | 28  | 10   | 14     | entrance | 13FNH73
+-- | 260 | 2021 | 7     | 28  | 10   | 16     | exit     | 5P2BI95
+
 
 -- Check for unusual ATM transactions around the date of the theft from Leggett Street
 SELECT *
@@ -71,6 +72,7 @@ SELECT *
 -- | 279 | (826) 555-1652 | (066) 555-9701 | 2021 | 7     | 28  | 55       |
 -- | 281 | (338) 555-6650 | (704) 555-2131 | 2021 | 7     | 28  | 54       |
 -- +-----+----------------+----------------+------+-------+-----+----------+
+
 
 
 -- Search people table for matching phone_number, passport_number and license_plate
