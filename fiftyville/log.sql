@@ -8,4 +8,4 @@ SELECT * FROM crime_scene_reports
 -- | 297 | 2021 | 7     | 28  | Humphrey Street | Littering took place at 16:36. No known witnesses.
 
 -- Identify people who were near Humphrey Street on July 28, 2021
-SELECT * FROM some_table_tracking_movements WHERE location = 'Humphrey Street' AND date = '2021-07-28';
+SELECT * FROM bakery_security_logs WHERE location = 'Humphrey Street' AND date = '2021-07-28';
