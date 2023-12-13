@@ -1,1 +1,20 @@
+Reflecting on Spotify's Audio Aura Calculation:
+
+1. Approach to Characterize the Audio Aura:
+    -Using SQL queries to calculate the average energy, valence, and danceability of the top 100 songs from 2018 in the songs.db database.
+    -Interpretation based on averages:
+        -High Average Energy: More intense and dynamic musical preference.
+        -High Average Valence: Preference for positive and uplifting music.
+        -High Average Danceability: Preference for rhythmically engaging music.
+
+2. Limitations and Proposed Improvements:
+    -Single Year Data: Data from 2018 may not fully represent current musical preferences.
+    -Top 100 Songs Bias: Analysis limited to top 100 songs might miss broader musical tastes.
+    -Lack of Contextual Data: No consideration of the context in which songs are played.
+    -Subjectivity in Music Perception: Perceptions of energy, valence, and danceability are subjective.
+    -Improvement Proposals:
+        -Multi-Year Analysis: Analyze data from multiple years.
+        -Broader Song Selection: Include more than the top 100 songs.
+        -Contextual Analysis: Consider when and where songs are played.
+        -User Feedback Integration: Use direct user feedback for aura calculation.
 
