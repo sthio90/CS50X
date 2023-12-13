@@ -28,8 +28,11 @@ SELECT * FROM interviews
 -- Check for unusual ATM transactions around the date of the theft from Leggett Street
 SELECT * FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street';
 
--- Identify flights out of Fiftyville on July 29, 2021
-SELECT * FROM flights WHERE year = 2021 AND month = 7 AND day = 29;
+-- Identify earliest flight out of Fiftyville on July 29, 2021
+SELECT * FROM flights WHERE year = 2021 AND month = 7 AND day = 29 ORDER BY hour ASC;
+-- | id | origin_airport_id | destination_airport_id | year | month | day | hour | minute |
+-- +----+-------------------+------------------------+------+-------+-----+------+--------+
+-- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20
 
 -- Review phone calls made on the day of the theft and the day after
 SELECT * FROM phone_calls WHERE year = 2021 AND month = 7 AND day BETWEEN 28 AND 29;
