@@ -115,3 +115,9 @@ SELECT *
 -- Search phone number linked to person Bruce called (375) 555-8161
 SELECT *
     FROM people WHERE phone_number = "(375) 555-8161";
+
+-- +--------+-------+----------------+-----------------+---------------+
+-- |   id   | name  |  phone_number  | passport_number | license_plate |
+-- +--------+-------+----------------+-----------------+---------------+
+-- | 864400 | Robin | (375) 555-8161 | NULL            | 4V16VO0       |
+-- +--------+-------+----------------+-----------------+---------------+
