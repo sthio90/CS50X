@@ -15,7 +15,6 @@ SELECT * FROM bakery_security_logs
 -- | 260 | 2021 | 7     | 28  | 10   | 16     | exit     | 5P2BI95
 
 -- Retrieve interviews from around the date of the crime
-
 SELECT * FROM interviews
     WHERE year = 2021 AND month = 7 AND day = 28 AND transcript LIKE '%bakery%';
 -- +-----+---------+------+-------+-----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -26,7 +25,7 @@ SELECT * FROM interviews
 -- | 163 | Raymond | 2021 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 -- +-----+---------+------+-------+-----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
--- Check for unusual ATM transactions around the date of the theft
+-- Check for unusual ATM transactions around the date of the theft from Leggett Street
 SELECT * FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street';
 
 -- Identify flights out of Fiftyville on July 29, 2021
