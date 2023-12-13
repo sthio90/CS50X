@@ -101,4 +101,4 @@ SELECT *
 -- Search people table JOIN bank_accounts table for matching phone_number, passport_number, atm_number and license_plate
 SELECT *
     FROM people p JOIN bank_accounts ba ON p.id = ba.person_id
-    WHERE 
+    WHERE ba.account_number IN (SELECT * FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street';)
