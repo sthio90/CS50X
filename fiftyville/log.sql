@@ -27,7 +27,7 @@ SELECT * FROM interviews
 -- +-----+---------+------+-------+-----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 -- Check for unusual ATM transactions around the date of the theft
-SELECT * FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28;
+SELECT * FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street';
 
 -- Identify flights out of Fiftyville on July 29, 2021
 SELECT * FROM flights WHERE year = 2021 AND month = 7 AND day = 29;
