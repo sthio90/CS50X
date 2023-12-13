@@ -14,3 +14,5 @@ SELECT * FROM bakery_security_logs
 -- | 259 | 2021 | 7     | 28  | 10   | 14     | entrance | 13FNH73
 -- | 260 | 2021 | 7     | 28  | 10   | 16     | exit     | 5P2BI95
 
+-- Retrieve interviews from around the date of the crime
+SELECT * FROM interviews WHERE year = 2021 AND month = 7 AND day BETWEEN 27 AND 29;
