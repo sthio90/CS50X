@@ -101,4 +101,17 @@ SELECT *
 -- Search people table JOIN bank_accounts table for matching phone_number, passport_number, atm_number and license_plate
 SELECT *
     FROM people p JOIN bank_accounts ba ON p.id = ba.person_id
-    WHERE ba.account_number IN (SELECT * FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street';)
+    WHERE ba.account_number IN (SELECT account_number FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street')
+        AND p.phone_number IN (SELECT caller FROM phone_calls WHERE year = 2021 AND month = 7 AND day = 28 AND duration <60)
+        AND p.passport_number IN (SELECT passport_number FROM passengers WHERE flight_id = 36)
+        AND p.license_plate IN (SELECT license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute between 15 AND 25);
+
+-- +--------+-------+----------------+-----------------+---------------+----------------+-----------+---------------+
+-- |   id   | name  |  phone_number  | passport_number | license_plate | account_number | person_id | creation_year |
+-- +--------+-------+----------------+-----------------+---------------+----------------+-----------+---------------+
+-- | 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       | 49610011       | 686048    | 2010          |
+-- +--------+-------+----------------+-----------------+---------------+----------------+-----------+---------------+
+
+-- Search phone number linked to person Bruce called (375) 555-8161
+SELECT *
+    FROM people WHERE phone_number = "(375) 555-8161";
