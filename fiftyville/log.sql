@@ -9,4 +9,4 @@ SELECT * FROM crime_scene_reports
 
 -- Find all activities at the bakery on July 28, 2021
 SELECT * FROM bakery_security_logs
-    WHERE year = 2021 AND month = 7 AND day = 28;
+    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10;
