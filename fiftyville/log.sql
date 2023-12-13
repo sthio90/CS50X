@@ -18,15 +18,24 @@ SELECT * FROM interviews
 -- | 163 | Raymond | 2021 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 -- +-----+---------+------+-------+-----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
--- Find all activities at the bakery on July 28, 2021
+-- License plate numbers from within 10 minutes after theft
 SELECT * FROM bakery_security_logs
-    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute between 15 to 25;
+    WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute between 15 AND 25;
 
--- | 259 | 2021 | 7     | 28  | 10   | 14     | entrance | 13FNH73
--- | 260 | 2021 | 7     | 28  | 10   | 16     | exit     | 5P2BI95
+-- +-----+------+-------+-----+------+--------+----------+---------------+
+-- | id  | year | month | day | hour | minute | activity | license_plate |
+-- +-----+------+-------+-----+------+--------+----------+---------------+
+-- | 260 | 2021 | 7     | 28  | 10   | 16     | exit     | 5P2BI95       |
+-- | 261 | 2021 | 7     | 28  | 10   | 18     | exit     | 94KL13X       |
+-- | 262 | 2021 | 7     | 28  | 10   | 18     | exit     | 6P58WS2       |
+-- | 263 | 2021 | 7     | 28  | 10   | 19     | exit     | 4328GD8       |
+-- | 264 | 2021 | 7     | 28  | 10   | 20     | exit     | G412CB7       |
+-- | 265 | 2021 | 7     | 28  | 10   | 21     | exit     | L93JTIZ       |
+-- | 266 | 2021 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
+-- | 267 | 2021 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
+-- +-----+------+-------+-----+------+--------+----------+---------------+
 
-
--- Check for unusual ATM transactions around the date of the theft from Leggett Street
+-- Check for atm account_numbers around the date of the theft from Leggett Street
 SELECT *
     FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = 'Leggett Street';
 
@@ -45,7 +54,7 @@ SELECT *
 -- +-----+----------------+------+-------+-----+----------------+------------------+--------+
 
 -- Identify earliest flight out of Fiftyville on July 29, 2021
-SELECT * FROM flights WHERE year = 2021 AND month = 7 AND day = 29 ORDER BY hour ASC;
+SELECT * FROM flights WHERE year = 2021 AND month = 7 AND day = 29 ORDER BY hour ASC LIMIT 1;
 -- | id | origin_airport_id | destination_airport_id | year | month | day | hour | minute |
 -- +----+-------------------+------------------------+------+-------+-----+------+--------+
 -- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20
@@ -72,7 +81,5 @@ SELECT *
 -- | 279 | (826) 555-1652 | (066) 555-9701 | 2021 | 7     | 28  | 55       |
 -- | 281 | (338) 555-6650 | (704) 555-2131 | 2021 | 7     | 28  | 54       |
 -- +-----+----------------+----------------+------+-------+-----+----------+
-
-
 
 -- Search people table for matching phone_number, passport_number and license_plate
