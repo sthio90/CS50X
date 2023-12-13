@@ -34,5 +34,7 @@ SELECT * FROM flights WHERE year = 2021 AND month = 7 AND day = 29 ORDER BY hour
 -- +----+-------------------+------------------------+------+-------+-----+------+--------+
 -- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20
 
+-- Identify destination_airport_id 4
+
 -- Review phone calls made on the day of the theft and the day after
 SELECT * FROM phone_calls WHERE year = 2021 AND month = 7 AND day BETWEEN 28 AND 29;
