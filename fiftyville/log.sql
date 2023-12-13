@@ -98,4 +98,7 @@ SELECT *
 -- | 281 | (338) 555-6650 | (704) 555-2131 | 2021 | 7     | 28  | 54       |
 -- +-----+----------------+----------------+------+-------+-----+----------+
 
--- Search people table for matching phone_number, passport_number and license_plate
+-- Search people table JOIN bank_accounts table for matching phone_number, passport_number, atm_number and license_plate
+SELECT *
+    FROM people p JOIN bank_accounts ba ON p.id = ba.person_id
+    WHERE 
