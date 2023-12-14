@@ -12,7 +12,6 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <!-- Sidebar -->
                 <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
                     <div class="position-sticky">
                         <ul class="nav flex-column">
@@ -32,7 +31,6 @@
                     </div>
                 </nav>
 
-                <!-- Page content -->
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <h1>Countries I have Travelled To!</h1>
                     <div id="map" style="height: 500px;"></div>
@@ -49,7 +47,7 @@
         </div>
 
         <script>
-            var map = L.map('map').setView([20, 0], 2); 
+            var map = L.map('map').setView([20, 0], 2);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 18,
