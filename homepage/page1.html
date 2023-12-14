@@ -49,16 +49,21 @@
         </div>
 
         <script>
-            var map = L.map('map').setView([20, 0], 2); // Set the initial position and zoom level of the map
+            var map = L.map('map').setView([20, 0], 2); // Global view
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 18,
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
-            // You can add markers for the countries you've visited like this:
-            // L.marker([latitude, longitude]).addTo(map).bindPopup('Country Name');
+            // Markers for the countries
+            L.marker([-25.2744, 133.7751]).addTo(map).bindPopup('Australia'); // Australia
+            L.marker([37.0902, -95.7129]).addTo(map).bindPopup('USA'); // USA
+            L.marker([56.1304, -106.3468]).addTo(map).bindPopup('Canada'); // Canada
+            L.marker([36.2048, 138.2529]).addTo(map).bindPopup('Japan'); // Japan
+            L.marker([1.3521, 103.8198]).addTo(map).bindPopup('Singapore'); // Singapore
+            L.marker([35.8617, 104.1954]).addTo(map).bindPopup('China'); // China
         </script>
-        
+
     </body>
 </html>
