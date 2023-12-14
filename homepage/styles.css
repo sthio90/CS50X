@@ -21,5 +21,13 @@ ul, ol {
 
 li {
     margin-bottom: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
+li:hover {
+    color: #007bff;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 5px;
+}
