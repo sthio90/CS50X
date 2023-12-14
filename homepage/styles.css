@@ -31,3 +31,7 @@ li:hover {
     background-color: #f0f0f0;
     padding: 5px;
 }
+
+img {
+    max-width:100%
+}
