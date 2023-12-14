@@ -15,4 +15,8 @@ p {
     line-height: 1.6;
 }
 
+a:hover {
+    color: #007bff;
+}
+
 /* Add more CSS styles here */
