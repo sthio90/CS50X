@@ -17,7 +17,7 @@
                     document.querySelector('#feedback1').innerHTML = 'Correct!';
                 });
                 // When incorrect answer clicked, change colour to red
-                let incorrect = document.querySelectorAll('incorrect');
+                let incorrects = document.querySelectorAll('.incorrect');
                 for (let i = 0; i < incorrects.length; i++) {
                     incorrects[i].addEventListener('click', function() {
                         incorrects[i].style.backgroundColor = 'red';
@@ -29,7 +29,7 @@
                 document.querySelector('#check').addEventListener('click', function() {
                     let input = document.querySelector('input');
                     if (input.value === 'AFL') {
-                        intput.style.backgroundColor = 'green';
+                        input.style.backgroundColor = 'green';
                         document.querySelector('#feedback2').innerHTML = 'Correct!';
                     } else {
                         input.style.backgroundColor = 'red';
