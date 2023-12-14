@@ -15,8 +15,11 @@ p {
     line-height: 1.6;
 }
 
-a:hover {
-    color: #007bff;
+ul, ol {
+    padding-left: 20px;
 }
 
-/* Add more CSS styles here */
+li {
+    margin-bottom: 10px;
+}
+
