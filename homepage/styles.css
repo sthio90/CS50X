@@ -46,3 +46,7 @@ img {
     display: block;
     margin: 0 auto;
 }
+
+.custom-sidebar {
+    background-color: #ffd1dc;
+}
