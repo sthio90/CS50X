@@ -8,6 +8,15 @@ body {
 h1 {
     color: #333;
     text-align: center;
+    font-size: 2.5em; /* Increase font size */
+    font-weight: bold; /* Make the font bold */
+    margin-bottom: 1em; /* Add some space below the header */
+    padding: 0.5em 0; /* Add some padding above and below the text */
+    background-color: #e7e7e7; /* Optional: add a background color */
+    border-bottom: 3px solid #007bff; /* Optional: add a bottom border */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+    text-transform: uppercase; /* Optional: transform text to uppercase */
+    letter-spacing: 1.5px; /* Optional: increase letter spacing for a modern look */
 }
 
 p {
