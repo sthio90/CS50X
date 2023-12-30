@@ -7,5 +7,33 @@
 {% block main %}
         <div class="mb-3">
             <p>Portfolio</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.name }}</td>
+                        <td>{{ stock.shares }}</td>
+                        <td>{{ stock.price }}</td>
+                        <td>{{ stock.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div>
+                <p><strong>Cash:</strong> {{ cash }}</p>
+            </div>
+            <div>
+                <p><strong>Grand Total:</strong> {{ grand_total }}</p>
+            </div>
         </div>
 {% endblock %}
