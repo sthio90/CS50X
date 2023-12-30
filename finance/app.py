@@ -127,8 +127,8 @@ def register():
 
         # Search database users and if username is already in database then return 'username already in use'
         user_check = db.execute("SELECT * FROM users WHERE username = ?;", username)
-            if user_check:
-                return apology("Username already in use", 400)
+        if user_check:
+            return apology("Username already in use", 400)
 
         # If above criterias not met then create new row in user table with new user information
         hash_password = generate_password_hash(password)
