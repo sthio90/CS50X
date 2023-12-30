@@ -9,11 +9,12 @@
         <div class="mb-3">
             <label for="symbol">Stock Symbol:</label>
             <select name="symbol" id="symbol" class="form-control">
+                <option value="" disabled selected>Select your stock</option>
                 {% for stock in stocks %}
                 <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
                 {% endfor %}
             </select>
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number" min="1">
         </div>
         <button class="btn btn-primary" type="submit">Sell</button>
     </form>
