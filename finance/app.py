@@ -113,28 +113,25 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
-    # Ensure username submitted
-    if not username:
-        return apology("must provide username", 400)
+        # Ensure username submitted
+        if not username:
+            return apology("must provide username", 400)
 
-    # Ensure password submitted
-    if not password:
-        return apology("must provide password", 400)
+        # Ensure password submitted
+        elif not password:
+            return apology("must provide password", 400)
 
-    # Ensure confirmation submitted
-    if not confirmation:
-        return apology("must provide confirmation", 400)
+        # Ensure confirmation submitted and matches password
+        elif not confirmation or password != confirmation:
+            return apology("passwords do not match", 400)
 
-    users = db.execute("SELECT * FROM users;")
-    # Search database users and if username is already in database then return 'username already in use'
-    if username IN users.username
-        return print("Username already in use")
+        # Search database users and if username is already in database then return 'username already in use'
+        user_check = db.execute("SELECT * FROM users WHERE username = ?;", username)
+            if user_check:
+                return apology("Username already in use", 400)
 
-    # If password submitted does not match confirmation password then return 'passwords do not match'
-    elif password != confirmation
-        return print("Passwords do not match")
-
-    # If both above criterias not met then create new row in user table with new user information
+    # If above criterias not met then create new row in user table with new user information
+    hash_password = generate_password_hash(password)
     db.execute("INSERT INTO users (username, hash, cash) VALUE (?, ?, ?);", username, password, usd(10000))
     return apology("TODO")
 
