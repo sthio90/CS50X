@@ -241,7 +241,7 @@ def sell():
             return apology("Invalid symbol", 400)
 
         # Update the transactions table to record this sale
-        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'sell')", session["user_id"], symbol, -shares_to_sell, stock["price"])
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'sell')", session["user_id"], symbol, shares_to_sell, stock["price"])
 
         # Update the user's cash balance
         total_sale_value = shares_to_sell * stock["price"]
