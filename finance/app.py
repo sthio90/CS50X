@@ -45,7 +45,7 @@ def buy():
     if request.method == "POST":
 
         #check input is blank or symbol does not exist
-        if not buy or buy :
+        if not buy or :
             return apology("Invalid symbol", 400)
     return apology("TODO")
 
