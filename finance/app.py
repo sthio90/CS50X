@@ -43,6 +43,8 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
         stock = lookup(symbol)
         # check input is blank or symbol does not exist
         if not symbol or stock is None:
@@ -52,10 +54,9 @@ def buy():
         if not shares or shares < 1:
             return apology("Invalid number of shares", 400)
 
-        
+        return redirect ("/")
 
-    return apology("TODO")
-
+    return render_template("buy.html")
 
 @app.route("/history")
 @login_required
