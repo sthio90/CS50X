@@ -64,7 +64,7 @@ def buy():
         # db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'buy')", session["user_id"], symbol, shares, stock["price"])
 
         # Update the user's portfolio
-        # This part depends on how your portfolio table is structured
+
 
         return redirect ("/")
 
