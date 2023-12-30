@@ -103,6 +103,8 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+    if request.method == "POST":
+        
     return render_template("quote.html")
 
 
