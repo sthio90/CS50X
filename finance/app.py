@@ -109,6 +109,14 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+    # Ensure username submitted
+    if not username:
+        return apology("must provide username", 400)
+
     users = db.execute("SELECT * FROM users;")
     # Search database users and if username is already in database then return 'username already in use'
     if username IN users.username
