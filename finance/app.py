@@ -117,6 +117,14 @@ def register():
     if not username:
         return apology("must provide username", 400)
 
+    # Ensure password submitted
+    if not password:
+        return apology("must provide password", 400)
+
+    # Ensure confirmation submitted
+    if not confirmation:
+        return apology("must provide confirmation", 400)
+
     users = db.execute("SELECT * FROM users;")
     # Search database users and if username is already in database then return 'username already in use'
     if username IN users.username
