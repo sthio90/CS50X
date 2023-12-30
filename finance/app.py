@@ -229,7 +229,7 @@ def sell():
             return apology("Cannot sell less than 1 share", 400)
 
         # Check user's current shares of the stock
-        current_shares = db.execute("SELECT SUM(shares) as total_shares FROM transactions WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)[0]["total_shares"]
+        current_shares = db.execute("SELECT SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)[0]["total_shares"]
         if current_shares < shares_to_sell:
             return apology("Not enough shares", 400)
 
