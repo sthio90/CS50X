@@ -59,10 +59,10 @@ def index():
     # Fetch users current cash balance
     user_balance = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])
     cash = user_balance[0]["cash"]
+    grand_total = total_holdings_value + cash
 
     # Render index page with stock and cash data
-
-    return render_template("index.html")
+    return render_template("index.html", stocks=stocks, cash=usd(cash), grand_total=usd(grand_total))
 
 
 @app.route("/buy", methods=["GET", "POST"])
