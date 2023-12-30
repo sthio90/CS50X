@@ -109,7 +109,17 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    db.execute("INSERT INTO users (username, hash))
+    users = db.execute("SELECT * FROM users;")
+    # Search database users and if username is already in database then return 'username already in use'
+    if username IN users.username
+        return print("Username already in use")
+
+    # If password submitted does not match confirmation password then return 'passwords do not match'
+    elif password != confirmation
+        return print("Passwords do not match")
+
+    # If both above criterias not met then create new row in user table with new user information
+    db.execute("INSERT INTO users (username, hash, cash) VALUE (?, ?, ?);", username, password, usd(10000))
     return apology("TODO")
 
 
