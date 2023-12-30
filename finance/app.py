@@ -43,7 +43,18 @@ def index():
     total_holdings_value = 0
 
     # Fetch current prices and calculate total value for each
-    
+    for holding in holdings:
+        stock_data = lookup(holding["symbol"])
+        if stock_data:
+            holding_value = holding["total_shares"] * stock_data["price"]
+            total_holdings_value += holding_value
+            stocks.append({
+                "symbol": holding["symbol"],
+                "name": stock_data["name"],
+                "shares": holding["total_shares"],
+                "price": usd(stock_data["price"]),
+                "total": usd(holding_value)
+            })
 
     # Fetch users current cash balance
     user_balance = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])
