@@ -5,10 +5,5 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/quote" method="post">
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
-        </div>
-        <button class="btn btn-primary" type="submit">Quote</button>
-    </form>
+    <p>The price of {{ name }}({{ symbol }}) is {{ price }} per share.</p>
 {% endblock %}
