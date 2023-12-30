@@ -43,9 +43,9 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-
+        stock = lookup(buy_name)
         #check input is blank or symbol does not exist
-        if not buy or stock is None:
+        if not buy_name or stock is None:
             return apology("Invalid symbol", 400)
     return apology("TODO")
 
