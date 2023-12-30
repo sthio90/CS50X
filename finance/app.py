@@ -70,7 +70,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol")
+        symbol = toupper(request.form.get("symbol"))
         try:
             shares = int(request.form.get("shares"))
         except ValueError:
