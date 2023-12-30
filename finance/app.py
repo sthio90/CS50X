@@ -216,5 +216,16 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        
-    return apology("TODO")
+        symbol = request.form.get("symbol")
+        symbol = symbol.upper()
+        try:
+            shares = int(request.form.get("shares"))
+        except ValueError:
+            return apology("Invalid number of shares", 400)
+
+        if shares < 1:
+            return apology("Invalid number of shares", 400)
+
+        stock = lookup(symbol)
+
+    return render_template("sell.html")
