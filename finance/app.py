@@ -219,7 +219,10 @@ def sell():
     stocks = db.execute("SELECT symbol, SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
 
     if request.method == "POST":
-        symbol = request.form.get("symbol").upper()
+        symbol = request.form.get("symbol")
+        if not symbol:
+            return apology("No stock selected", 400)
+
         try:
             shares_to_sell = int(request.form.get("shares"))
         except ValueError:
