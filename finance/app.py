@@ -44,18 +44,26 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        shares = request.form.get("shares")
+        try:
+            shares = int(request.form.get("shares"))
+        except ValueError:
+            return apology("Invalid number of shares", 400)
+
+        if shares < 1:
+            return apology("Invalid number of shares", 400)
+
         stock = lookup(symbol)
         user = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])
+        if not user:
+            return apology("User not found", 400)
+
         cash = user[0]["cash"]
         total_cost = shares * stock["price"]
+
         # check input is blank or symbol does not exist
         if not symbol or stock is None:
             return apology("Invalid symbol", 400)
 
-        # check input in shares is blank
-        if not shares or int(shares) < 1:
-            return apology("Invalid number of shares", 400)
 
         # Update user's cash
         db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", total_cost, session["user_id"])
