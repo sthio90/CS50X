@@ -46,7 +46,7 @@ def buy():
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
         stock = lookup(symbol)
-        cash = db.execute("SELECT cash FROM users WHERE username = ?;", session["user_id"])
+        cash = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])
         # check input is blank or symbol does not exist
         if not symbol or stock is None:
             return apology("Invalid symbol", 400)
