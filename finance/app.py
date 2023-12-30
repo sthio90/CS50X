@@ -36,7 +36,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     # Fetch users stock holdings
-    holdings = db.execute("SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
+    holdings = db.execute("SELECT symbol, SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
     # Prepare list of held stock data
     stocks = []
     total_holdings_value = 0
