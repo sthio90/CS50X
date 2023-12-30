@@ -108,9 +108,13 @@ def quote():
         # Ensure symbol submitted
         if not symbol:
             return apology("must provide symbol", 400)
-        stock = lookup(symbol)
-        return render_template("quoted.html", name=stock.name, symbol=stock.symbol, price=stock.price)
 
+        stock = lookup(symbol)
+
+        if stock is None:
+            return apology("symbol not found", 400)
+
+        return render_template("quoted.html", name=stock["name"], symbol=stock["symbol"], price=stock["price"])
 
     return render_template("quote.html")
 
