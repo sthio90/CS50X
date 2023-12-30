@@ -237,15 +237,14 @@ def sell():
             })
 
     if request.method == "POST":
-        symbol = request.form.get("symbol")
-        symbol = symbol.upper()
+        symbol = request.form.get("symbol").upper()
         try:
-            shares = int(request.form.get("shares"))
+            shares_to_sell = int(request.form.get("shares"))
         except ValueError:
             return apology("Invalid number of shares", 400)
 
-        if shares < 1:
-            return apology("Invalid number of shares", 400)
+        if shares <= 0:
+            return apology("Cannot sell less than 1 share", 400)
 
         stock = lookup(symbol)
 
