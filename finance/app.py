@@ -215,6 +215,27 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    # Fetch users stock holdings
+    holdings = db.execute("SELECT symbol, SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
+
+    # Prepare list of held stock data
+    stocks = []
+    total_holdings_value = 0
+
+    # Fetch current prices and calculate total value for each
+    for holding in holdings:
+        stock_data = lookup(holding["symbol"])
+        if stock_data:
+            holding_value = holding["total_shares"] * stock_data["price"]
+            total_holdings_value += holding_value
+            stocks.append({
+                "symbol": holding["symbol"],
+                "name": stock_data["name"],
+                "shares": holding["total_shares"],
+                "price": usd(stock_data["price"]),
+                "total": usd(holding_value)
+            })
+
     if request.method == "POST":
         symbol = request.form.get("symbol")
         symbol = symbol.upper()
