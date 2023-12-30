@@ -60,7 +60,8 @@ def buy():
         # Update user's cash
         db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", total_cost, session["user_id"])
 
-        # Record the purchase in transactions table (assuming it exists)
+        # Record the purchase in transactions table
+        
         # db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'buy')", session["user_id"], symbol, shares, stock["price"])
 
         # Update the user's portfolio
