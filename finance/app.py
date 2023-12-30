@@ -228,6 +228,22 @@ def sell():
         if shares <= 0:
             return apology("Cannot sell less than 1 share", 400)
 
+        # Check user's current shares of the stock
+        current_shares = db.execute("SELECT SUM(shares) as total_shares FROM transactions WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)[0]["total_shares"]
+        if current_shares < shares_to_sell:
+            return apology("Not enough shares", 400)
+
         stock = lookup(symbol)
+        if not stock:
+            return apology("Invalid symbol", 400)
+
+        # Update the transactions table to record this sale
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'sell')", session["user_id"], symbol, -shares_to_sell, stock["price"])
+
+        # Update the user's cash balance
+        total_sale_value = shares_to_sell * stock["price"]
+        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", total_sale_value, session["user_id"])
+
+        return redirect("/")
 
     return render_template("sell.html", stocks=stocks)
