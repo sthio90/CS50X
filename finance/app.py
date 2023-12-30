@@ -230,4 +230,4 @@ def sell():
 
         stock = lookup(symbol)
 
-    return render_template("sell.html")
+    return render_template("sell.html", stocks=stocks)
