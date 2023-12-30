@@ -130,10 +130,13 @@ def register():
             if user_check:
                 return apology("Username already in use", 400)
 
-    # If above criterias not met then create new row in user table with new user information
-    hash_password = generate_password_hash(password)
-    db.execute("INSERT INTO users (username, hash, cash) VALUE (?, ?, ?);", username, password, usd(10000))
-    return apology("TODO")
+        # If above criterias not met then create new row in user table with new user information
+        hash_password = generate_password_hash(password)
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?);", username, hash_password)
+
+        return redirect("/login")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
