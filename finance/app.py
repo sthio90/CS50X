@@ -44,14 +44,14 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        shares = int(request.form.get("shares"))
+        shares = request.form.get("shares")
         stock = lookup(symbol)
         # check input is blank or symbol does not exist
         if not symbol or stock is None:
             return apology("Invalid symbol", 400)
 
         # check input in shares is blank
-        if not shares or shares < 1:
+        if not shares or int(shares) < 1:
             return apology("Invalid number of shares", 400)
 
         return redirect ("/")
