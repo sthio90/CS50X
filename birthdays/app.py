@@ -28,8 +28,7 @@ def index():
 
         # TODO: Add the user's entry into the database
         rows = db.execute("SELECT * FROM birthdays;")
-        
-
+        print(rows)
         return redirect("/")
 
     else:
