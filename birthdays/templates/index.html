@@ -29,8 +29,12 @@
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
-                        {for rows in rows}
-                        {endfor}
+                        {% for row in rows %}
+                            <tr>
+                                <td>{{ row }}</td>
+                            </tr>
+                            {{ rows }}
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
