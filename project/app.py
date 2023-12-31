@@ -336,7 +336,8 @@ def add_cash():
     else:
         return render_template("add_cash.html")
 
-@app.route("/crypto")
+
+@app.route("/crypto", methods=["GET", "POST"])
 @login_required
 def crypto():
     # Example: Get data for Bitcoin (BTC)
