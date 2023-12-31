@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Cash
+{% endblock %}
+
+{% block main %}
+<form action="/add_cash" method="post">
+    <div class="mb-3">
+        <label for="amount">Amount to Add</label>
+        <input id="amount" name="amount" placeholder="Amount" step="0.01" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Cash</button>
+</form>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% endblock %}
