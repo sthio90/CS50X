@@ -335,3 +335,13 @@ def add_cash():
 
     else:
         return render_template("add_cash.html")
+
+@app.route("/crypto")
+@login_required
+def crypto():
+    # Example: Get data for Bitcoin (BTC)
+    crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", "BTC")
+
+    # Add error handling and data extraction as needed
+
+    return render_template("crypto.html", crypto_data=crypto_data)
