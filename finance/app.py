@@ -270,7 +270,6 @@ def add_cash():
             return apology("Amount must be greater than 0", 400)
 
         db.execute("UPDATE users SET cash = cash + ? WHERE id = ?;", amount, session["user_id"])
-        amount = request.form.get("amount")
         flash("Your cash was added!", "success")
         return redirect("/")
 
