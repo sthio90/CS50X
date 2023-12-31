@@ -6,25 +6,25 @@
 
 {% block main %}
         <div class="mb-3">
-            <h1><strong></strong>History</h1>
+            <h1><strong></strong>Transaction History</h1>
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Type</th>
                         <th>Symbol</th>
-                        <th>Name</th>
                         <th>Shares</th>
                         <th>Price</th>
-                        <th>Total</th>
+                        <th>Date/Time</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for stock in stocks %}
+                    {% for transaction in transactions %}
                     <tr>
-                        <td>{{ stock.symbol }}</td>
-                        <td>{{ stock.name }}</td>
-                        <td>{{ stock.shares }}</td>
-                        <td>{{ stock.price }}</td>
-                        <td>{{ stock.total }}</td>
+                        <td>{{ transaction.type }}</td>
+                        <td>{{ transaction.symbol }}</td>
+                        <td>{{ transaction.shares }}</td>
+                        <td>{{ transaction.price }}</td>
+                        <td>{{ transaction.timestamp }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
