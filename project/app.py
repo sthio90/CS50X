@@ -343,5 +343,7 @@ def crypto():
     crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", "BTC")
 
     # Add error handling and data extraction as needed
+    btc_price = data['data']['BTC']['quote']['USD']['price']
+    print(f"The current price of Bitcoin (BTC) is: ${btc_price:.2f}")
 
     return render_template("crypto.html", crypto_data=crypto_data)
