@@ -108,7 +108,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    return apology("TODO")
+    
+    return render_template("history.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -222,6 +223,8 @@ def sell():
         symbol = request.form.get("symbol")
         if not symbol:
             return apology("No stock selected", 400)
+
+        symbol = symbol.upper()
 
         try:
             shares_to_sell = int(request.form.get("shares"))
