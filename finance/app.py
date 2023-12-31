@@ -266,7 +266,7 @@ def add_cash():
         except ValueError:
             return apology("Invalid amount", 400)
 
-        if amount <= 0;
+        if amount <= 0:
             return apology("Amount must be greater than 0", 400)
 
         db.execute("UPDATE users SET cash = cash + ? WHERE id = ?;", amount, session["user_id"])
