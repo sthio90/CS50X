@@ -6,16 +6,27 @@
 
 {% block main %}
     <form action="/sell" method="post" class="container">
-        <div class="mb-3">
-            <label for="symbol">Stock Symbol:</label>
-            <select name="symbol" id="symbol" class="form-control">
-                <option value="" disabled selected>Select your stock</option>
-                {% for stock in stocks %}
-                <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
-                {% endfor %}
-            </select>
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number" min="1">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-4">
+                <label for="symbol">Stock Symbol:</label>
+                <select name="symbol" id="symbol" class="form-control">
+                    <option value="" disabled selected>Select your stock</option>
+                    {% for stock in stocks %}
+                    <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-        <button class="btn btn-primary" type="submit">Sell</button>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-4">
+                <label for="shares">Shares:</label>
+                <input autocomplete="off" autofocus class="form-control" id="shares" name="shares" placeholder="Shares" type="number" min="1">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <button class="btn btn-primary w-100" type="submit">Sell</button>
+            </div>
+        </div>
     </form>
 {% endblock %}
