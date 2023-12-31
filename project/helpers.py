@@ -76,3 +76,20 @@ def lookup(symbol):
 def usd(value):
     """Format value as USD."""
     return f"${value:,.2f}"
+
+
+
+def get_crypto_data(api_key, symbol):
+    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
+    headers = {
+        'X-CMC_PRO_API_KEY': api_key,
+        'Accepts': 'application/json'
+    }
+    parameters = {
+        'symbol': symbol,
+        'convert': 'USD'
+    }
+    response = requests.get(url, headers=headers, params=parameters)
+    data = response.json()
+    return data
+
