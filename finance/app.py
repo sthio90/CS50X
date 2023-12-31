@@ -181,7 +181,7 @@ def quote():
         if stock is None:
             return apology("symbol not found", 400)
 
-        return render_template("quoted.html", name=stock["name"], symbol=stock["symbol"], price=stock["price"])
+        return render_template("quoted.html", name=stock["name"], symbol=stock["symbol"], price=usd(stock["price"]))
 
     return render_template("quote.html")
 
