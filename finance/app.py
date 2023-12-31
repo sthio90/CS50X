@@ -115,6 +115,10 @@ def history():
     # Query database for user's transactions
     transactions = db.execute("SELECT symbol, shares, price, type, timestamp FROM transactions WHERE user_id = ? ORDER BY timestamp DESC", session["user_id"])
 
+    # Format each price in the transactions using usd()
+    for transaction in transactions:
+        transaction["price"] = usd(transaction["price"])
+
     # Render history template, passing in the transactions
     return render_template("history.html", transactions=transactions)
 
