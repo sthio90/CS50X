@@ -27,6 +27,8 @@ The project consists of several key files and components:
 
 * requirements.txt: Contains the necesary imports.
 
+* config.py: Contains my API key for CoinMarketCap. I used the free basic API.
+
 ## Design Considerations:
 During the development of Crypto Checker, several key design decisions were made:
 
