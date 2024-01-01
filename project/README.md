@@ -3,7 +3,7 @@
 #### Description:
 Crypto Checker is a web application designed to provide users with the ability to track cryptocurrency prices in real-time. It leverages the power of the CoinMarketCap API to fetch the latest data on various cryptocurrencies, allowing users to make informed decisions based on current market trends.
 
-The application is built using Flask, a micro web framework written in Python. It integrates with a SQLite database to store user data and cryptocurrency preferences, ensuring a personalized experience for each user.
+The application is built using Flask, a micro web framework written in Python. It integrates with a SQLite database to store user data and cryptocurrency preferences, ensuring a personalized experience for each user. The CS50 codespace and VSCode was used to build this project.
 
 ## Key Features:
 
@@ -25,7 +25,7 @@ The project consists of several key files and components:
 
 * project.db: SQLite database file storing user account information and user-specific crypto lists.
 
-* requirements.txt: Contains the necesary imports.
+* requirements.txt: The dependencies of the Crypto Checker application. It lists all the Python libraries that the project depends on, allowing for easy installation and consistent setup across different environments. This file ensures that anyone who clones the repository can replicate the application's environment with the correct versions of each dependency, thereby avoiding potential conflicts and compatibility issues.
 
 * config.py: Contains my API key for CoinMarketCap. I used the free basic API.
 
