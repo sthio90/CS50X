@@ -188,7 +188,7 @@ def crypto_list():
             price = api_data['data'][symbol]['quote']['USD']['price']
             crypto_data.append({
                 'symbol': symbol,
-                'price': usd(price)  # Using the usd() function to format the price
+                'price': usd(price)
             })
 
     return render_template("crypto_list.html", cryptos=crypto_data)
