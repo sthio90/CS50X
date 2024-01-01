@@ -364,3 +364,21 @@ def crypto():
 
     # Handle GET request
     return render_template("crypto.html", symbol=None, crypto_price=None)
+
+    
+@app.route("/add_crypto", methods=["GET", "POST"])
+@login_required
+def add_crypto():
+    if request.method == "POST":
+        symbol = request.form.get("symbol").upper()
+
+        if not symbol:
+            return apology("You must provide a symbol", 400)
+
+        # Add the symbol to the database
+        db.execute("INSERT INTO user_cryptos (user_id, symbol) VALUES (?, ?)",
+                   session["user_id"], symbol)
+
+        return redirect("/crypto_list")
+    else:
+        return render_template("add_crypto.html")
