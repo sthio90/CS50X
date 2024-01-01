@@ -87,10 +87,23 @@ def get_crypto_data(api_key, symbol):
     parameters = {
         'symbol': symbol,
         'convert': 'USD'
+    }
+    response = requests.get(url, headers=headers, params=parameters)
+    data = response.json()
+    return data
+
+
+def get_historical_data(api_key, symbol, start, end):
+    url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/historical"
+    headers = {
+        'X-CMC_PRO_API_KEY': api_key,
+        'Accepts': 'application/json'
+    }
+    parameters = {
+        'symbol': symbol,
         'time_start': start,
         'time_end': end
     }
     response = requests.get(url, headers=headers, params=parameters)
     data = response.json()
     return data
-
