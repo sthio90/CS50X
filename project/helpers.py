@@ -1,5 +1,6 @@
 import csv
 import datetime
+from datetime import datetime
 import pytz
 import requests
 import subprocess
@@ -107,3 +108,22 @@ def get_historical_data(api_key, symbol, start, end):
     response = requests.get(url, headers=headers, params=parameters)
     data = response.json()
     return data
+
+def process_historical_data(historical_data):
+    date_labels = []
+    price_data = []
+
+    # Loop through each entry in the 'quotes' list
+    for entry in historical_data.get('data', {}).get('quotes', []):
+        # Extract the timestamp and convert it to a more readable format
+        timestamp = entry.get('timestamp')
+        if timestamp:
+            date = datetime.fromisoformat(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+            date_labels.append(date)
+
+        # Extract the price
+        price = entry.get('quote', {}).get('USD', {}).get('price')
+        if price is not None:
+            price_data.append(price)
+
+    return date_labels, price_data
