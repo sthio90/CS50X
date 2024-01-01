@@ -19,7 +19,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///finance.db")
+db = SQL("sqlite:///project.db")
 
 
 @app.after_request
@@ -365,7 +365,7 @@ def crypto():
     # Handle GET request
     return render_template("crypto.html", symbol=None, crypto_price=None)
 
-    
+
 @app.route("/add_crypto", methods=["GET", "POST"])
 @login_required
 def add_crypto():
