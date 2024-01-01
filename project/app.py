@@ -359,11 +359,11 @@ def crypto():
         btc_price = "Unavailable"
         print("Error: Unable to retrieve the BTC price")
 
-        return render_template(
-        "quoted.html",
-        name=stock["name"],
-        symbol=stock["symbol"],
-        price=usd(stock["price"]),
-    )
+    #     return render_template(
+    #     "quoted.html",
+    #     name=stock["name"],
+    #     symbol=stock["symbol"],
+    #     price=usd(stock["price"]),
+    # )
 
     return render_template("crypto.html", crypto_data=crypto_data, btc_price=btc_price)
