@@ -39,9 +39,11 @@ During the development of Crypto Checker, several key design decisions were made
 ## Future Enhancements:
 While Crypto Checker currently meets its core objectives, future enhancements are planned:
 
-* Extended Historical Data: Subject to API access, the application will offer more extensive historical data analysis and trend visualization.
+* Extended Historical Data: Subject to API access, the application will offer more extensive historical data analysis and trend visualization. I had initially tried to incorporate a historical graph into the price checker but realized that the basic free CoinMarketCap API access does not grant access to the needed endpoints.
+
 * Portfolio Management: A feature to allow users to track their cryptocurrency holdings and view portfolio performance over time.
+
 * Mobile Responsiveness: Improving the application's responsiveness and user experience on mobile devices.
 
 ## Conclusion:
-Crypto Checker represents a practical and educational foray into the world of web application development, API integration, and real-time data processing. It exemplifies the power of Python and Flask in creating functional web applications and provides a platform for continued learning and development in the field of cryptocurrency and web development.*
+Crypto Checker represents a practical and educational foray into the world of web application development, API integration, and real-time data processing. It exemplifies the power of Python and Flask in creating functional web applications and provides a platform for continued learning and development in the field of cryptocurrency and web development.
