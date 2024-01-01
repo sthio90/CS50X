@@ -5,3 +5,11 @@ nav .navbar-brand-custom
     font-size: 24px;
     text-shadow: 1px 1px 2px #000;
 }
+
+nav .navbar {
+    background-color: #aec6cf;
+}
+
+body {
+    background-color: gold;
+}
