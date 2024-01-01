@@ -340,8 +340,16 @@ def add_cash():
 @app.route("/crypto", methods=["GET", "POST"])
 @login_required
 def crypto():
-    # Example: Get data for Bitcoin (BTC)
-    crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", "BTC")
+    if request.method == "POST":
+    symbol = request.form.get("symbol")
+    # Ensure symbol submitted
+    if not symbol:
+        return apology("must provide symbol", 400)
+
+    crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", symbol)
+
+    if crypto_data is None:
+        return apology("symbol not found", 400)
 
     # Error handling and data extraction
     try:
@@ -350,5 +358,12 @@ def crypto():
     except (KeyError, TypeError):
         btc_price = "Unavailable"
         print("Error: Unable to retrieve the BTC price")
+
+        return render_template(
+        "quoted.html",
+        name=stock["name"],
+        symbol=stock["symbol"],
+        price=usd(stock["price"]),
+    )
 
     return render_template("crypto.html", crypto_data=crypto_data, btc_price=btc_price)
