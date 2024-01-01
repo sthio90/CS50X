@@ -383,3 +383,12 @@ def add_crypto():
         return redirect("/crypto_list")
     else:
         return render_template("add_crypto.html")
+
+@app.route("/crypto_list")
+@login_required
+def crypto_list():
+    # Query the database for the user's cryptocurrencies
+    user_cryptos = db.execute("SELECT symbol FROM user_cryptos WHERE user_id = ?",
+                              session["user_id"])
+
+    return render_template("crypto_list.html", cryptos=user_cryptos)
