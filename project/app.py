@@ -349,8 +349,8 @@ def crypto():
 
     crypto_data = get_crypto_data(api_key, symbol)
 
-    if crypto_data is None:
-        return apology("symbol not found", 400)
+    if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
+        return apology(f"Data for symbol {symbol} not found", 400)
 
     # Error handling and data extraction
     try:
@@ -368,3 +368,29 @@ def crypto():
     # )
 
     return render_template("crypto.html", crypto_data=crypto_data, btc_price=btc_price)
+
+
+    if request.method == "POST":
+        symbol = request.form.get("symbol").upper()
+        # Ensure symbol submitted
+        if not symbol:
+            return apology("must provide symbol", 400)
+
+        crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", symbol)
+
+        if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
+            return apology(f"Data for symbol {symbol} not found", 400)
+
+        # Error handling and data extraction
+        try:
+            crypto_price = crypto_data['data'][symbol]['quote']['USD']['price']
+            print(f"The current price of {symbol} is: ${crypto_price:.2f}")
+        except (KeyError, TypeError):
+            crypto_price = "Unavailable"
+            print(f"Error: Unable to retrieve the price for {symbol}")
+
+        return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price))
+
+    # Handle GET request
+    return render_template("crypto.html", symbol=None, crypto_price=None)
+
