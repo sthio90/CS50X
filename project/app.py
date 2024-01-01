@@ -34,8 +34,7 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    # Fetch users list
-    return redirect("/crypto_list")
+    return render_template("welcome.html")
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
