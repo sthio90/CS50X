@@ -348,11 +348,17 @@ def crypto():
 @app.route("/add_crypto", methods=["GET", "POST"])
 @login_required
 def add_crypto():
+    api_key = COINMARKETCAP_API_KEY
     if request.method == "POST":
         symbol = request.form.get("symbol").upper()
 
         if not symbol:
             return apology("You must provide a symbol", 400)
+
+        # Verify if the symbol is valid by making an API call
+        crypto_data = get_crypto_data(api_key, symbol)
+        if not crypto_data or 'data' not in crypto_data or symbol not in crypto_data['data']:
+            return apology(f"Symbol {symbol} is not a valid cryptocurrency", 400)
 
         # Add the symbol to the database
         db.execute("INSERT INTO user_cryptos (user_id, symbol) VALUES (?, ?)",
@@ -361,6 +367,7 @@ def add_crypto():
         return redirect("/crypto_list")
     else:
         return render_template("add_crypto.html")
+
 
 @app.route("/crypto_list")
 @login_required
