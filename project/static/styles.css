@@ -1,23 +1,7 @@
-/* Size for brand */
-nav .navbar-brand
+nav .navbar-brand-custom
 {
-    font-size: xx-large;
-}
-
-/* Colors for brand */
-nav .navbar-brand .blue
-{
-    color: #537fbe;
-}
-nav .navbar-brand .red
-{
-    color: #ea433b;
-}
-nav .navbar-brand .yellow
-{
-    color: #f5b82e;
-}
-nav .navbar-brand .green
-{
-    color: #2e944b;
+    font-family: 'Arial', sans-serif;
+    color: #007bff;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px #000;
 }
