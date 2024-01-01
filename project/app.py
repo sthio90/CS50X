@@ -1,12 +1,11 @@
 import os
-from datetime import datetime, timedelta
 from config import COINMARKETCAP_API_KEY
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd, get_crypto_data, get_historical_data, process_historical_data
+from helpers import apology, login_required, lookup, usd, get_crypto_data
 
 # Configure application
 app = Flask(__name__)
@@ -327,17 +326,6 @@ def crypto():
         if not symbol:
             return apology("must provide symbol", 400)
 
-        # Define the time range for historical data (e.g., last 7 days)
-        end_time = datetime.now()
-        start_time = end_time - timedelta(days=7)
-
-        # Fetch historical data for the symbol
-        historical_data = get_historical_data(api_key, symbol, start_time.isoformat(), end_time.isoformat())
-        # Process the historical data to extract date labels and price data
-        date_labels, price_data = process_historical_data(historical_data)
-        # After processing historical data
-        print("Date Labels:", date_labels)
-        print("Price Data:", price_data)
         crypto_data = get_crypto_data(api_key, symbol)
 
         if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
@@ -351,10 +339,10 @@ def crypto():
             crypto_price = "Unavailable"
             print(f"Error: Unable to retrieve the price for {symbol}")
 
-        return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price), date_labels=date_labels, price_data=price_data)
+        return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price))
 
     # Handle GET request
-    return render_template("crypto.html", symbol=None, crypto_price=None, date_labels=None, price_data=None)
+    return render_template("crypto.html", symbol=None, crypto_price=None)
 
 
 @app.route("/add_crypto", methods=["GET", "POST"])

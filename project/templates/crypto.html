@@ -15,37 +15,5 @@
         <div>
             <p>The current price of {{ symbol }} is: {{ crypto_price }}</p>
         </div>
-        <!-- Canvas for Chart.js graph -->
-        <canvas id="myChart"></canvas>
-
-        <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: {{ date_labels | tojson | safe }},
-                    datasets: [{
-                        label: '{{ symbol }} Price',
-                        data: {{ price_data | tojson | safe }},
-                        backgroundColor: 'rgba(0, 123, 255, 0.5)',
-                        borderColor: 'rgba(0, 123, 255, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'day'
-                            }
-                        },
-                        y: {
-                            beginAtZero: false
-                        }
-                    }
-                }
-            });
-        </script>
     {% endif %}
 {% endblock %}
