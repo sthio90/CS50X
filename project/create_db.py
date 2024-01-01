@@ -19,6 +19,15 @@ c.execute('''
     CREATE UNIQUE INDEX username ON users (username);
 ''')
 
+# Create the 'user_cryptos' table
+c.execute('''
+    CREATE TABLE user_cryptos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        symbol TEXT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 # Commit the changes and close the connection
 conn.commit()
 conn.close()
