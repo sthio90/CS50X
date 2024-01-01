@@ -250,6 +250,7 @@ def register():
             "INSERT INTO users (username, hash) VALUES (?, ?);", username, hash_password
         )
 
+        flash(f"Successfully registered!", "success")
         return redirect("/login")
     else:
         return render_template("register.html")
