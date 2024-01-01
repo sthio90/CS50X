@@ -316,28 +316,6 @@ def sell():
     return render_template("sell.html", stocks=stocks)
 
 
-@app.route("/add_cash", methods=["GET", "POST"])
-@login_required
-def add_cash():
-    if request.method == "POST":
-        try:
-            amount = float(request.form.get("amount"))
-        except ValueError:
-            return apology("Invalid amount", 400)
-
-        if amount <= 0:
-            return apology("Amount must be greater than 0", 400)
-
-        db.execute(
-            "UPDATE users SET cash = cash + ? WHERE id = ?;", amount, session["user_id"]
-        )
-        flash(f"Successfully added ${amount:.2f} to your account!", "success")
-        return redirect("/")
-
-    else:
-        return render_template("add_cash.html")
-
-
 @app.route("/crypto", methods=["GET", "POST"])
 @login_required
 def crypto():
