@@ -391,4 +391,17 @@ def crypto_list():
     user_cryptos = db.execute("SELECT symbol FROM user_cryptos WHERE user_id = ?",
                               session["user_id"])
 
-    return render_template("crypto_list.html", cryptos=user_cryptos)
+    # Fetch real-time data for each token
+    crypto_data = []
+    for crypto in user_cryptos:
+        symbol = crypto['symbol']
+        api_data = get_crypto_data(api_key, symbol)
+        if api_data and 'data' in api_data and symbol in api_data['data']:
+            price = api_data['data'][symbol]['quote']['USD']['price']
+            crypto_data.append({
+                'symbol': symbol,
+                'price': usd(price)  # Using the usd() function to format the price
+            })
+
+    return render_template("crypto_list.html", cryptos=crypto_data)
+

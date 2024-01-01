@@ -1,21 +1,21 @@
 {% extends "layout.html" %}
-
 {% block title %}
     List
 {% endblock %}
-
 {% block main %}
     <h2>Your Crypto Tokens</h2>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Symbol</th>
+                <th>Price (USD)</th>
             </tr>
         </thead>
         <tbody>
             {% for crypto in cryptos %}
             <tr>
                 <td>{{ crypto.symbol }}</td>
+                <td>{{ crypto.price }}</td>
             </tr>
             {% endfor %}
         </tbody>
