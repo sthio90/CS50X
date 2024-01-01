@@ -87,6 +87,8 @@ def get_crypto_data(api_key, symbol):
     parameters = {
         'symbol': symbol,
         'convert': 'USD'
+        'time_start': start,
+        'time_end': end
     }
     response = requests.get(url, headers=headers, params=parameters)
     data = response.json()
