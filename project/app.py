@@ -24,7 +24,6 @@ db = SQL("sqlite:///project.db")
 
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
@@ -36,81 +35,9 @@ def after_request(response):
 def index():
     return render_template("welcome.html")
 
-@app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
-    """Buy shares of stock"""
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-        # Check if symbol was submitted
-        if not symbol:
-            return apology("Missing symbol", 400)
-
-        symbol = symbol.upper()
-
-        try:
-            shares = int(request.form.get("shares"))
-        except ValueError:
-            return apology("Invalid number of shares", 400)
-
-        if shares < 1:
-            return apology("Invalid number of shares", 400)
-
-        stock = lookup(symbol)
-        # Check if symbol is valid
-        if stock is None:
-            return apology("Invalid symbol", 400)
-
-        user = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])
-        cash = user[0]["cash"]
-        total_cost = shares * stock["price"]
-
-        if cash < total_cost:
-            return apology("Not enough cash", 400)
-
-        # Update user's cash
-        db.execute(
-            "UPDATE users SET cash = cash - ? WHERE id = ?",
-            total_cost,
-            session["user_id"],
-        )
-
-        # Record the purchase in transactions table
-        db.execute(
-            "INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'buy')",
-            session["user_id"],
-            symbol,
-            shares,
-            stock["price"],
-        )
-
-        return redirect("/")
-
-    return render_template("buy.html")
-
-
-@app.route("/history")
-@login_required
-def history():
-    """Show history of transactions"""
-    # Query database for user's transactions
-    transactions = db.execute(
-        "SELECT symbol, shares, price, type, timestamp FROM transactions WHERE user_id = ? ORDER BY timestamp DESC",
-        session["user_id"],
-    )
-
-    # Format each price in the transactions using usd()
-    for transaction in transactions:
-        transaction["price"] = usd(transaction["price"])
-
-    # Render history template, passing in the transactions
-    return render_template("history.html", transactions=transactions)
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """Log user in"""
-
     # Forget any user_id
     session.clear()
 
@@ -148,7 +75,6 @@ def login():
 
 @app.route("/logout")
 def logout():
-    """Log user out"""
 
     # Forget any user_id
     session.clear()
@@ -157,34 +83,8 @@ def logout():
     return redirect("/")
 
 
-@app.route("/quote", methods=["GET", "POST"])
-@login_required
-def quote():
-    """Get stock quote."""
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-        # Ensure symbol submitted
-        if not symbol:
-            return apology("must provide symbol", 400)
-
-        stock = lookup(symbol)
-
-        if stock is None:
-            return apology("symbol not found", 400)
-
-        return render_template(
-            "quoted.html",
-            name=stock["name"],
-            symbol=stock["symbol"],
-            price=usd(stock["price"]),
-        )
-
-    return render_template("quote.html")
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Register user"""
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -216,66 +116,6 @@ def register():
         return redirect("/login")
     else:
         return render_template("register.html")
-
-
-@app.route("/sell", methods=["GET", "POST"])
-@login_required
-def sell():
-    """Sell shares of stock"""
-    # Fetch users stock holdings
-    stocks = db.execute(
-        "SELECT symbol, SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0",
-        session["user_id"],
-    )
-
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-        if not symbol:
-            return apology("No stock selected", 400)
-
-        symbol = symbol.upper()
-
-        try:
-            shares_to_sell = int(request.form.get("shares"))
-        except ValueError:
-            return apology("Invalid number of shares", 400)
-
-        if shares_to_sell <= 0:
-            return apology("Cannot sell less than 1 share", 400)
-
-        # Check user's current shares of the stock from the 'stocks' list
-        current_shares = db.execute(
-            "SELECT SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? AND symbol = ?",
-            session["user_id"],
-            symbol,
-        )[0]["total_shares"]
-        if current_shares < shares_to_sell:
-            return apology("Not enough shares", 400)
-
-        stock = lookup(symbol)
-        if not stock:
-            return apology("Invalid symbol", 400)
-
-        # Update the transactions table to record this sale
-        db.execute(
-            "INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (?, ?, ?, ?, 'sell')",
-            session["user_id"],
-            symbol,
-            shares_to_sell,
-            stock["price"],
-        )
-
-        # Update the user's cash balance
-        total_sale_value = shares_to_sell * stock["price"]
-        db.execute(
-            "UPDATE users SET cash = cash + ? WHERE id = ?",
-            total_sale_value,
-            session["user_id"],
-        )
-
-        return redirect("/")
-
-    return render_template("sell.html", stocks=stocks)
 
 
 @app.route("/crypto", methods=["GET", "POST"])
@@ -352,6 +192,7 @@ def crypto_list():
             })
 
     return render_template("crypto_list.html", cryptos=crypto_data)
+
 
 @app.route("/delete_crypto", methods=["POST"])
 @login_required
