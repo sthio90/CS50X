@@ -335,7 +335,9 @@ def crypto():
         historical_data = get_historical_data(api_key, symbol, start_time.isoformat(), end_time.isoformat())
         # Process the historical data to extract date labels and price data
         date_labels, price_data = process_historical_data(historical_data)
-
+        # After processing historical data
+        print("Date Labels:", date_labels)
+        print("Price Data:", price_data)
         crypto_data = get_crypto_data(api_key, symbol)
 
         if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
