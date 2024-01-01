@@ -336,7 +336,6 @@ def crypto():
         # Process the historical data to extract date labels and price data
         date_labels, price_data = process_historical_data(historical_data)
 
-
         crypto_data = get_crypto_data(api_key, symbol)
 
         if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
@@ -349,9 +348,6 @@ def crypto():
         except (KeyError, TypeError):
             crypto_price = "Unavailable"
             print(f"Error: Unable to retrieve the price for {symbol}")
-
-        date_labels = ["2022-01-01", "2022-01-02", "2022-01-03"]  # Example dates
-        price_data = [40000, 41000, 41500]  # Example prices
 
         return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price), date_labels=date_labels, price_data=price_data)
 
