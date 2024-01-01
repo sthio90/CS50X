@@ -1,12 +1,11 @@
 import os
 from config import COINMARKETCAP_API_KEY
 from cs50 import SQL
-from datetime import datetime, timedelta
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd, get_crypto_data, get_historical_data
+from helpers import apology, login_required, lookup, usd, get_crypto_data
 
 # Configure application
 app = Flask(__name__)
@@ -317,39 +316,31 @@ def sell():
     return render_template("sell.html", stocks=stocks)
 
 
-
-
 @app.route("/crypto", methods=["GET", "POST"])
 @login_required
 def crypto():
     api_key = COINMARKETCAP_API_KEY
     if request.method == "POST":
         symbol = request.form.get("symbol").upper()
-
         # Ensure symbol submitted
         if not symbol:
             return apology("must provide symbol", 400)
 
-        # Define the time range for historical data
-        end_time = datetime.now()
-        start_time = end_time - timedelta(days=7)
-        # Format times as required by the API (e.g., UNIX timestamps or ISO 8601 strings)
-
-        # Verify if the symbol is valid by making an API call for current data
         crypto_data = get_crypto_data(api_key, symbol)
+
         if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
             return apology(f"Data for symbol {symbol} not found", 400)
 
-        # Fetch historical data for the symbol
-        historical_data = get_historical_data(api_key, symbol, start_time.isoformat(), end_time.isoformat())
-        # Process the historical data to extract date labels and price data
-        date_labels, price_data = process_historical_data(historical_data)
-
-        # Extract the current price from crypto_data
+        # Error handling and data extraction
         try:
             crypto_price = crypto_data['data'][symbol]['quote']['USD']['price']
+            print(f"The current price of {symbol} is: ${crypto_price:.2f}")
         except (KeyError, TypeError):
             crypto_price = "Unavailable"
+            print(f"Error: Unable to retrieve the price for {symbol}")
+
+        date_labels = ["2022-01-01", "2022-01-02", "2022-01-03"]  # Example dates
+        price_data = [40000, 41000, 41500]  # Example prices
 
         return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price), date_labels=date_labels, price_data=price_data)
 
