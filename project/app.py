@@ -1,5 +1,5 @@
 import os
-
+from config import COINMARKETCAP_API_KEY
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -340,13 +340,14 @@ def add_cash():
 @app.route("/crypto", methods=["GET", "POST"])
 @login_required
 def crypto():
+    api_key = COINMARKETCAP_API_KEY
     if request.method == "POST":
     symbol = request.form.get("symbol")
     # Ensure symbol submitted
     if not symbol:
         return apology("must provide symbol", 400)
 
-    crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", symbol)
+    crypto_data = get_crypto_data(api_key, symbol)
 
     if crypto_data is None:
         return apology("symbol not found", 400)
