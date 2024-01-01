@@ -1,7 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}
-    List
-{% endblock %}
+
 {% block main %}
     <h2>Your Crypto Tokens</h2>
     <table class="table">
@@ -9,6 +7,7 @@
             <tr>
                 <th>Symbol</th>
                 <th>Price (USD)</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +15,12 @@
             <tr>
                 <td>{{ crypto.symbol }}</td>
                 <td>{{ crypto.price }}</td>
+                <td>
+                    <form action="/delete_crypto" method="post">
+                        <input type="hidden" name="symbol" value="{{ crypto.symbol }}">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

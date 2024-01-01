@@ -387,6 +387,7 @@ def add_crypto():
 @app.route("/crypto_list")
 @login_required
 def crypto_list():
+    api_key = COINMARKETCAP_API_KEY
     # Query the database for the user's cryptocurrencies
     user_cryptos = db.execute("SELECT symbol FROM user_cryptos WHERE user_id = ?",
                               session["user_id"])
@@ -405,3 +406,16 @@ def crypto_list():
 
     return render_template("crypto_list.html", cryptos=crypto_data)
 
+@app.route("/delete_crypto", methods=["POST"])
+@login_required
+def delete_crypto():
+    symbol = request.form.get("symbol")
+
+    if not symbol:
+        return apology("Missing symbol", 400)
+
+    # Delete the token from the database
+    db.execute("DELETE FROM user_cryptos WHERE user_id = ? AND symbol = ?",
+               session["user_id"], symbol)
+
+    return redirect("/crypto_list")
