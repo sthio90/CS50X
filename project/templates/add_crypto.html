@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <h2>Add a Crypto Token</h2>
+    <form action="/add_crypto" method="post">
+        <input type="text" name="symbol" placeholder="Enter crypto symbol (e.g., BTC)" required>
+        <button type="submit">Add</button>
+    </form>
+{% endblock %}
