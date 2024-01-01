@@ -29,6 +29,8 @@ The project consists of several key files and components:
 
 * config.py: Contains my API key for CoinMarketCap. I used the free basic API.
 
+* create_db.py: This was a small python script I used to create a SQL database and with the necessary schemas.
+
 ## Design Considerations:
 During the development of Crypto Checker, several key design decisions were made:
 

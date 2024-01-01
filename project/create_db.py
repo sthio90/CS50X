@@ -14,20 +14,6 @@ c.execute('''
     );
 ''')
 
-# Create the 'transactions' table
-c.execute('''
-    CREATE TABLE transactions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        symbol TEXT NOT NULL,
-        shares INTEGER NOT NULL,
-        price REAL NOT NULL,
-        type TEXT NOT NULL,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users(id)
-    );
-''')
-
 # Create a unique index on 'username' in the 'users' table
 c.execute('''
     CREATE UNIQUE INDEX username ON users (username);
