@@ -34,45 +34,8 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    """Show portfolio of stocks"""
-    # Fetch users stock holdings
-    holdings = db.execute(
-        "SELECT symbol, SUM(CASE WHEN type = 'buy' THEN shares ELSE -shares END) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0",
-        session["user_id"],
-    )
-
-    # Prepare list of held stock data
-    stocks = []
-    total_holdings_value = 0
-
-    # Fetch current prices and calculate total value for each
-    for holding in holdings:
-        stock_data = lookup(holding["symbol"])
-        if stock_data:
-            holding_value = holding["total_shares"] * stock_data["price"]
-            total_holdings_value += holding_value
-            stocks.append(
-                {
-                    "symbol": holding["symbol"],
-                    "name": stock_data["name"],
-                    "shares": holding["total_shares"],
-                    "price": usd(stock_data["price"]),
-                    "total": usd(holding_value),
-                }
-            )
-
-    # Fetch users current cash balance
-    user_balance = db.execute(
-        "SELECT cash FROM users WHERE id = ?;", session["user_id"]
-    )
-    cash = user_balance[0]["cash"]
-    grand_total = total_holdings_value + cash
-
-    # Render index page with stock and cash data
-    return render_template(
-        "index.html", stocks=stocks, cash=usd(cash), grand_total=usd(grand_total)
-    )
-
+    # Fetch users list
+    return redirect("/crypto_list")
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
