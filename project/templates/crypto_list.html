@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    List
+{% endblock %}
+
+{% block main %}
+    <h2>Your Crypto Tokens</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for crypto in cryptos %}
+            <tr>
+                <td>{{ crypto.symbol }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
