@@ -342,41 +342,12 @@ def add_cash():
 def crypto():
     api_key = COINMARKETCAP_API_KEY
     if request.method == "POST":
-    symbol = request.form.get("symbol")
-    # Ensure symbol submitted
-    if not symbol:
-        return apology("must provide symbol", 400)
-
-    crypto_data = get_crypto_data(api_key, symbol)
-
-    if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
-        return apology(f"Data for symbol {symbol} not found", 400)
-
-    # Error handling and data extraction
-    try:
-        btc_price = crypto_data['data']['BTC']['quote']['USD']['price']
-        print(f"The current price of Bitcoin (BTC) is: ${btc_price:.2f}")
-    except (KeyError, TypeError):
-        btc_price = "Unavailable"
-        print("Error: Unable to retrieve the BTC price")
-
-    #     return render_template(
-    #     "quoted.html",
-    #     name=stock["name"],
-    #     symbol=stock["symbol"],
-    #     price=usd(stock["price"]),
-    # )
-
-    return render_template("crypto.html", crypto_data=crypto_data, btc_price=btc_price)
-
-
-    if request.method == "POST":
         symbol = request.form.get("symbol").upper()
         # Ensure symbol submitted
         if not symbol:
             return apology("must provide symbol", 400)
 
-        crypto_data = get_crypto_data("9a72a110-7d8d-4560-aa9a-281b537ee6a7", symbol)
+        crypto_data = get_crypto_data(api_key, symbol)
 
         if crypto_data is None or 'data' not in crypto_data or symbol not in crypto_data['data']:
             return apology(f"Data for symbol {symbol} not found", 400)
@@ -393,4 +364,3 @@ def crypto():
 
     # Handle GET request
     return render_template("crypto.html", symbol=None, crypto_price=None)
-
