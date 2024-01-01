@@ -339,10 +339,13 @@ def crypto():
             crypto_price = "Unavailable"
             print(f"Error: Unable to retrieve the price for {symbol}")
 
-        return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price))
+        date_labels = ["2022-01-01", "2022-01-02", "2022-01-03"]  # Example dates
+        price_data = [40000, 41000, 41500]  # Example prices
+
+        return render_template("crypto.html", symbol=symbol, crypto_price=usd(crypto_price), date_labels=date_labels, price_data=price_data)
 
     # Handle GET request
-    return render_template("crypto.html", symbol=None, crypto_price=None)
+    return render_template("crypto.html", symbol=None, crypto_price=None, date_labels=None, price_data=None)
 
 
 @app.route("/add_crypto", methods=["GET", "POST"])
