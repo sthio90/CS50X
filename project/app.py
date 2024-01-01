@@ -1,4 +1,5 @@
 import os
+from datetime import datetime, timedelta
 from config import COINMARKETCAP_API_KEY
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -325,6 +326,16 @@ def crypto():
         # Ensure symbol submitted
         if not symbol:
             return apology("must provide symbol", 400)
+
+        # Define the time range for historical data (e.g., last 7 days)
+        end_time = datetime.now()
+        start_time = end_time - timedelta(days=7)
+
+        # Fetch historical data for the symbol
+        historical_data = get_historical_data(api_key, symbol, start_time.isoformat(), end_time.isoformat())
+        # Process the historical data to extract date labels and price data
+        date_labels, price_data = process_historical_data(historical_data)
+
 
         crypto_data = get_crypto_data(api_key, symbol)
 
